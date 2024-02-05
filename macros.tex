@@ -1,0 +1,239 @@
+\usepackage{ifthen}
+\usepackage{tikz-cd}
+\usepackage{soul}
+\usepackage{fullpage, prettyref}
+\usepackage{fancyhdr}
+\usepackage{palatino}
+\usepackage[T1]{fontenc}
+\usepackage{ulem}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{algorithm}
+\usepackage{a4}
+\usepackage[margin=1in]{geometry} 
+\usepackage[noend]{algpseudocode}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{boxedminipage}
+\usepackage{wrapfig}
+\usepackage{color, xcolor}
+\usepackage{transparent}
+\usepackage{parskip}
+\usepackage{varwidth}
+\usepackage{bm}
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{fullpage, prettyref}
+\usepackage{boxedminipage}
+\usepackage{wrapfig}
+\usepackage{ifthen}
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=violet,pdfstartview=FitH]{hyperref}
+\usepackage[noabbrev,nameinlink]{cleveref}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathrsfs} 
+\usepackage{bbm} % bf numbers
+% use for citations.
+\usepackage[backend=biber,bibencoding=ascii,style=alphabetic,sorting=none]{biblatex}
+
+% config
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+
+
+% Algebra
+\newcommand{\unit}[1]{#1^{\times}}
+\DeclareMathOperator{\Orb}{Orb}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\rank}{rk}
+\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Ob}{Ob}
+\newcommand{\category}[1]{\mathsf{\underline{#1}}}
+\newcommand{\acts}{\circlearrowleft}
+\newcommand{\tleq}{\unlhd}
+
+% Boolean logic/algorithms
+\newcommand{\cor}{\textsc{ or }}
+\newcommand{\cand}{\textsc{ and }}
+\newcommand{\xor}{\oplus}
+\newcommand{\true}{\textsc{True}}
+\newcommand{\false}{\textsc{False}}
+\newcommand{\nil}{\textsc{Nil}}
+\newcommand{\alg}[1]{\textsc{#1}}
+\newcommand{\eq}{\leftarrow}
+\newcommand{\chapterref}[2]{[\S #1, #2]}
+
+% math formatting
+\def\bar{\overline}
+\newcommand{\script}[1]{\mathcal{#1}}
+\newcommand{\fancyscript}[1]{\mathscr{#1}}
+
+
+% number sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+
+%Paired Delims
+\def\set#1{\left\{ #1 \right\}}
+\def\angle#1{\left\langle #1 \right\rangle}
+\def\sqbrackets#1{\left[ #1 \right]}
+\def\brackets#1{\left( #1 \right)}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+
+%problem environment
+\newenvironment{problem}[2][Problem]{\large \begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+%problems list environment
+\newlist{subprob}{enumerate}{1}
+\setlist[subprob]{label={\bfseries\itshape\alph*.}}
+
+%solution environment
+\newenvironment{solution}[1][Solution]{
+    \setcounter{nlem}{0}
+    \vspace{-2ex}
+  \begin{proof}[#1]
+}{
+  \phantom\qedhere\end{proof}
+}
+
+
+% colored boxes
+\newenvironment{answerbox}{
+      \begin{mdframed}[backgroundcolor=green!30, innertopmargin=12px, topline=false,rightline=false,leftline=false,bottomline=false]}{
+  \end{mdframed}%
+}
+
+\newenvironment{thmbox}{
+        \vskip2ex
+          \begin{mdframed}[backgroundcolor=blue!10, topline=false,rightline=false,leftline=false,bottomline=false]}{
+  \end{mdframed}
+}
+
+\newenvironment{algbox}[1]{
+        \vskip2ex
+            \begin{mdframed}[backgroundcolor=yellow!10, topline=false,rightline=false,leftline=false,bottomline=false, userdefinedwidth=.7\linewidth, align=center]
+              \vspace{1ex}
+              \hrulefill
+              \vspace{-1.5ex}
+  
+              {\bf #1}
+  
+              \vspace{-2.5ex}
+              \hrulefill
+              }{
+            \end{mdframed}
+}
+
+\newenvironment{algboxnt}{
+        \vskip2ex
+            \begin{mdframed}[backgroundcolor=yellow!10, topline=false,rightline=false,leftline=false,bottomline=false, userdefinedwidth=.7\linewidth, align=center]\vspace{1.5ex}}{
+            \end{mdframed}
+}
+
+% theorem envs
+\theoremstyle{definition}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{claim}{Claim}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{coro}{Corollary}
+\newtheorem*{rmk}{Remark}
+\newtheorem*{prop}{Proposition}
+\newtheorem*{example}{Example}
+\newtheorem*{probstatement}{Problem}
+\newtheorem{nlem}{Lemma}
+\newtheorem{ndefn}[nlem]{Definition}
+\newtheorem{nthm}[nlem]{Theorem}
+\newtheorem{ncor}[nlem]{Corollary}
+\newtheorem{nprop}[nlem]{Proposition}
+\newtheorem{nrmk}[nlem]{Remark}
+
+
+% Probability
+\newcommand{\Prob}[1]{\mathbb{P}\left[#1\right]}
+\newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\Var}[1]{\mathbf{Var}\left[#1\right]}
+\newcommand{\Cov}[1]{\mathbf{Cov}[#1]}
+\renewcommand{\Pr}{\Prob}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\Pois}{Pois}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\Normal}{\mathcal{N}}
+\DeclareMathOperator{\Id}{Id}
+
+
+% Misc commands
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\poly}{\mathrm{poly}}
+\newcommand{\polylog}{\mathrm{polylog}}
+\newcommand{\contradiction}{\hfill$\Rightarrow\!\Leftarrow$}
+\newcommand{\writer}{Alan Sun}
+\newcommand{\email}{alan.w.sun.24@dartmouth.edu}
+\newcommand{\TODO}[1]{\textcolor{red}{\bf [TODO: #1] }}
+\newcommand{\note}[1]{\textcolor{blue}{\bf [Note: #1] }}
+\newcommand{\alert}[1]{\textcolor{red}{\bf [#1] }}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\lnorm}[2]{\left\lVert#1\right\rVert_{#2}}
+
+% PSet Titles
+\newcommand{\normaltitle}[3]{
+    \begin{center}
+        {\LARGE #2}
+        \vskip-1ex
+        {\large \writer}
+        \vskip-1ex
+        {\large Date: \today}
+        \vskip-1ex
+        {\large #1~#3}
+        \vskip0.1ex
+        \vspace{2ex}
+        \hrule height 2pt
+        \vspace{2ex}
+    \end{center}
+}
+
+\newcommand{\fancytitle}[3]{
+	{
+            \large
+            \rule{\textwidth}{1pt}
+		\begin{center}
+			{
+                    \setlength{\parskip}{0mm} \setlength{\parindent}{0mm}
+				{\textbf{#2} \hfill \writer}\\
+				#1:~#3 \hfill Date: \today
+                }
+		\end{center}
+            \vskip-2ex
+            \rule{\textwidth}{1pt}
+	}
+ }
