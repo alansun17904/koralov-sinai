@@ -11,30 +11,31 @@
     the entries is $n$. Then, by a stars and bars argument, we know that
     $|\Omega| = \binom{n+m-1}{m-1}$. Therefore, 
     \[
-      \Pr{\text{first box is empty}} = \frac{\binom{n+m-2}{m-2}}{\binom{n+m-1}{m-1}} = \frac{m-1}{n+m-1}.
+      \Pr\left[{\text{first box is empty}}\right] = \frac{\binom{n+m-2}{m-2}}{\binom{n+m-1}{m-1}} = \frac{m-1}{n+m-1}.
     \]
 \end{solution}
 \begin{problem}{3} 
 \end{problem}
 \begin{solution}
-    Let $Omega$ be the set of tuples where the first entry ist he number of
+    Let $\Omega$ be the set of tuples where the first entry ist he number of
     defective items and the second is the number of good items. Then,
-    $\Pr{(0,10)} = \frac{\binom{90}{10}}{\binom{100}{100}} = \frac{90\cdot 89
-    \cdot \ldots \cdot 81}{100 \cdot 99 \cdot \ldots \cdot 91}$.
+    $\Pr\left[{(0,10)}\right] = \frac{\binom{90}{10}}{\binom{100}{100}} =
+    \frac{90\cdot 89 \cdot \ldots \cdot 81}{100 \cdot 99 \cdot \ldots \cdot
+    91}$.
 \end{solution}
 \begin{problem}{4}
 \end{problem}
 \begin{solution}
-    By way of contradiction, suppose that $\Pr{|\xi| > C} > 0$ for $C > 0$.
-    Then, it follows that there exists some $A' \geq 1$ such that $\Pr{|\xi|
-    \geq A'C} > 0$. So, 
+    By way of contradiction, suppose that $\Pr\left[{|\xi| > C}\right] > 0$ for
+    $C > 0$. Then, it follows that there exists some $A' \geq 1$ such that
+    $\Pr\left[{|\xi| \geq A'C}\right]> 0$. So, 
     \begin{align*}
         \Exp{|\xi|^m} &= \sum_{\omega \in \Omega} |\xi(\omega)|^m, \\
         &\geq \sum_{\omega \in \set{|\xi| \geq A'C}} |\xi(\omega)|^m, \\
-        &\geq A'^mC^m\Pr{|\xi| \geq A'C}.
+        &\geq A'^mC^m\Pr\left[{|\xi| \geq A'C}\right].
     \end{align*}
-    Since $\Pr{|\xi| \geq A'C}$ is constant, clearly there does not exist $A >
-    0$ such that $A \geq A'^m$ for all $m$, thus a contradiction.
+    Since $\Pr\left[{|\xi| \geq A'C}\right]$ is constant, clearly there does not
+    exist $A > 0$ such that $A \geq A'^m$ for all $m$, thus a contradiction.
 \end{solution}
 \newpage
 \begin{problem}{5}
@@ -47,79 +48,127 @@
     Formally, $\sigma \in C_i$ if and only if $\sigma(i) = i$. Then, by the
     inclusion-exclusion principle, we have that 
     \begin{gather*}
-        \Pr{\set{\sigma: \exists i, \sigma(i) = i}} = \Pr{\bigcup_{i=1}^n C_i}, \\
-        = \sum_{i=1}^n \Pr{C_i} - \sum_{i < j} \Pr{C_i \cap C_j} + \sum_{i < j < k} \Pr{C_i \cap C_j \cap C_k} - \ldots.
+        \Pr\left[{\set{\sigma: \exists i, \sigma(i) = i}}\right] = \Pr\left[{\bigcup_{i=1}^n C_i}\right], \\
+        = \sum_{i=1}^n \Pr\left[{C_i}\right] - \sum_{i < j} \Pr\left[{C_i \cap C_j}\right] + \sum_{i < j < k} \Pr\left[{C_i \cap C_j \cap C_k}\right] - \ldots.
     \end{gather*}
     Now, we derive the expression for each term in the previous sum. For any
     $\sigma \in C_{i_1} \cap C_{i_2} \cap \ldots \cap C_{i_k}$, $\sigma(i_1) =
-    i_1$, $\sigma(i_2) = i_2$, $\ldots$, $\sigma(i_k) = i_k$. Thus, $\Pr{C_{i_1}
-    \cap C_{i_2} \cap \ldots \cap C_{i_k}} = \frac{(n-k)!}{n!}$. Therefore,
-    $\sum_{i_1 < i_2 < \ldots < i_k} \Pr{C_{i_1} \cap C_{i_2} \cap \ldots \cap
-    C_{i_k}} = \binom{n}{k}\frac{(n-k)!}{n!} = \frac{1}{k!}$. So,
+    i_1$, $\sigma(i_2) = i_2$, $\ldots$, $\sigma(i_k) = i_k$. Thus,
+    $\Pr\left[{C_{i_1} \cap C_{i_2} \cap \ldots \cap C_{i_k}}\right] =
+    \frac{(n-k)!}{n!}$. Therefore, $\sum_{i_1 < i_2 < \ldots < i_k}
+    \Pr\left[{C_{i_1} \cap C_{i_2} \cap \ldots \cap C_{i_k}}\right] =
+    \binom{n}{k}\frac{(n-k)!}{n!} = \frac{1}{k!}$. So,
     \begin{align*}
-        \Pr{\set{\sigma: \exists i, \sigma(i) = i}} &= 1 - \frac{1}{2!} + \frac{1}{3!} - \ldots + \frac{(-1)^{n+1}}{n!}, \\
-        \lim_{n\to\infty} \Pr{\set{\sigma: \exists i, \sigma(i) = i}} &= 1 - \frac{1}{e}.
+        \Pr\left[{\set{\sigma: \exists i, \sigma(i) = i}}\right] &= 1 - \frac{1}{2!} + \frac{1}{3!} - \ldots + \frac{(-1)^{n+1}}{n!}, \\
+        \lim_{n\to\infty} \Pr\left[{\set{\sigma: \exists i, \sigma(i) = i}}\right] &= 1 - \frac{1}{e}.
     \end{align*}
 \end{solution}
 \begin{problem}{6}
+    \color{brickred}{Not too sure how to take the limit here.}
 \end{problem}
 \begin{solution}
     The first part of the question is a direct application of a stars and bars
     argument. Then, there are $\binom{n+r-1}{r-1}$ solutions to the equation
     $x_1 + \ldots + x_r = n$. By the same argument, we find that 
     \[
-        \Pr{x_1 = a} = \binom{n-a+r-2}{r-2} / \binom{n+r-1}{r-1} =  \frac{(r-1)n!(n-a+r-2)!}{(n+r-1)!(n-a)!}.
+        \Pr\left[{x_1 = a}\right] = \binom{n-a+r-2}{r-2} / \binom{n+r-1}{r-1} =  \frac{(r-1)n!(n-a+r-2)!}{(n+r-1)!(n-a)!}.
     \]
     Now, we take the limit as $r,n\to\infty$ and $n/r \to \rho > 0$.
 \end{solution}
 \begin{problem}{7}
+    \color{brickred}{Missing variance of the Poisson distribution.}
 \end{problem}
 \begin{solution}
     Recall, that the Poisson distribution is the measure on $\Z^+$ such that for
-    any elementary outcome $k$, $\Pr{k} = \frac{\lambda^k}{e^\lambda k!}$. Let
-    $\xi = \Id_{\Z^+}$. Then, 
+    any elementary outcome $k$, $\Pr\left[{k}\right] =
+    \frac{\lambda^k}{e^\lambda k!}$. Let $\xi = \Id_{\Z^+}$. Then, 
     \begin{align*}
-        \Exp{\xi} &= \sum_{n=0}^\infty \xi(n)\Pr{n}, \\
+        \Exp{\xi} &= \sum_{n=0}^\infty \xi(n)\Pr[{n}], \\
         &= \sum_{n=1}^\infty \frac{\lambda^n}{e^\lambda (n-1)!}, \\
         \intertext{expanding the sum to see the Taylor expansion more clearly, we see that}
         &= \frac{\lambda}{e^\lambda}\left(1 + \lambda + \frac{\lambda^2}{2!} + \ldots \right), \\
-        &= \frac{\lambda}{e^\lambda}e^\lambda, \tag{by Taylor expansion}, \\
+        &= \frac{\lambda}{e^\lambda}e^\lambda, \tag{by Taylor expansion} \\
         &= \lambda.
     \end{align*}
+    Now, we find the variance using the formula $\Var[\xi] = \Exp{\xi^2} - (\Exp{\xi})^2$.
 \end{solution}
 \begin{problem}{9}
 \end{problem}
 \begin{solution}
     Recall that if $F$ is a distribution function of a random variable $\xi$
-    then, $F_\xi(x) = \Pr{\set{\xi(\omega) < x: \omega \in \Omega}}$. We then evaluate the expression on the right-hand side first 
+    then, $F_\xi(x) = \Pr\left[{\set{\xi(\omega) < x: \omega \in
+    \Omega}}\right]$. We then evaluate the expression on the right-hand side
+    first 
     \begin{align*}
-        \Pr{\set{\omega \in \Omega: \xi(\omega) \leq x}} - \lim_{\delta \downarrow 0} \Pr{\set{\omega \in \Omega: \xi(\omega) \leq x-\delta}} &= \Pr{\set{\omega \in \Omega: \xi(\omega) \leq x}} - \Pr{\bigcup_{i=1}^\infty \set{\omega \in \Omega: \xi(\omega) \leq x - \delta_i}},
+        \Pr\left[{\set{\omega \in \Omega: \xi(\omega) \leq x}}\right] - \lim_{\delta \downarrow 0} \Pr\left[{\set{\omega \in \Omega: \xi(\omega) \leq x-\delta}}\right] &= \Pr\left[{\set{\omega \in \Omega: \xi(\omega) \leq x}}\right] - \Pr\left[{\bigcup_{i=1}^\infty \set{\omega \in \Omega: \xi(\omega) \leq x - \delta_i}}\right],
     \end{align*}
-    where $\delta_1, \delta_2, \ldots$ is any sequence where $\delta_i \geq 0$ and converges to 0. We first show that \[\bigcup_{i=1}^\infty \set{\omega \in \Omega: \xi(\omega) \leq x - \delta_i} = \set{\omega \in \Omega: \xi(\omega) < x},\] 
-    That the left-hand side is a subset of the right-hand side is trivial. Now, suppose an element $\omega$ in the set on the right-hand side. There must exist some $\epsilon > 0$, such that $\xi(\omega) = x - \epsilon$. By convergence of $\delta_1,\delta_2,\ldots$, there must exist some $\delta_i$ where $\xi(\omega) = x - \epsilon \leq x - \delta_i$. Thus, the two sets are equivalent. Therefore, 
+    where $\delta_1, \delta_2, \ldots$ is any sequence where $\delta_i \geq 0$
+    and converges to 0. We first show that \[\bigcup_{i=1}^\infty \set{\omega
+    \in \Omega: \xi(\omega) \leq x - \delta_i} = \set{\omega \in \Omega:
+    \xi(\omega) < x},\] That the left-hand side is a subset of the right-hand
+    side is trivial. Now, suppose an element $\omega$ in the set on the
+    right-hand side. There must exist some $\epsilon > 0$, such that
+    $\xi(\omega) = x - \epsilon$. By convergence of $\delta_1,\delta_2,\ldots$,
+    there must exist some $\delta_i$ where $\xi(\omega) = x - \epsilon \leq x -
+    \delta_i$. Thus, the two sets are equivalent. Therefore, 
     \begin{align*}
-        \Pr{\set{\omega \in \Omega: \xi(\omega) \leq x}} - \Pr{\bigcup_{i=1}^\infty \set{\omega \in \Omega: \xi(\omega) \leq x - \delta_i}} &= \Pr{\set{\omega \in \Omega: \xi(\omega) \leq x}} - \Pr{\set{\omega \in \Omega: \xi(\omega) < x}}, \\
-        &= \Pr{\set{\omega \in \Omega: \xi(\omega) = x}}, \\
-        &= \Pr{\xi = x}.
+        \Pr\left[{\set{\omega \in \Omega: \xi(\omega) \leq x}}\right] - \Pr\left[{\bigcup_{i=1}^\infty \set{\omega \in \Omega: \xi(\omega) \leq x - \delta_i}}\right] &= \Pr\left[{\set{\omega \in \Omega: \xi(\omega) \leq x}}\right] - \Pr\left[{\set{\omega \in \Omega: \xi(\omega) < x}}\right], \\
+        &= \Pr\left[{\set{\omega \in \Omega: \xi(\omega) = x}}\right], \\
+        &= \Pr\left[{\xi = x}\right].
     \end{align*}
     The second equality follows $\sigma$-additivity of $\mathbb{P}$.
 \end{solution}
 \begin{problem}{10}
 \end{problem}
 \begin{solution}
-    Let $F$ be the distribution of $\xi$ and let $\eta = a\xi + b$ where $a\neq 0$. We first find the distribution of $\eta$:
+    Let $F$ be the distribution of $\xi$ and let $\eta = a\xi + b$ where $a\neq
+    0$. We first find the distribution of $\eta$:
     \begin{align*}
-        \Pr{\set{\omega \in \Omega: \eta(\omega) \leq x}} &= \Pr{\set{\omega \in \Omega: a\xi(\omega) + b \leq x}}, \\
-        &= \Pr{\set{\omega\in\Omega:\xi(\omega) \leq \frac{x-b}{a}}}, \\
+        \Pr\left[{\set{\omega \in \Omega: \eta(\omega) \leq x}}\right] &= \Pr\left[{\set{\omega \in \Omega: a\xi(\omega) + b \leq x}}\right], \\
+        &= \Pr\left[{\set{\omega\in\Omega:\xi(\omega) \leq \frac{x-b}{a}}}\right], \\
         &= F\left(\frac{x-b}{a}\right).
     \end{align*}
-    Thus, taking the derivative to yield the density function, we have that $p_\eta(x) = \frac{1}{a}p_\xi\left(\frac{x-b}{a}\right)$ where $p_\xi$ is the density of $\xi$. 
+    Thus, taking the derivative to yield the density function, we have that
+    $p_\eta(x) = \frac{1}{a}p_\xi\left(\frac{x-b}{a}\right)$ where $p_\xi$ is
+    the density of $\xi$. 
 \end{solution}
 \begin{problem}{11}
 \end{problem}
 \begin{solution}
-    We proceed in the same way as the previous problem, by finding the distribution function of $\eta = \sin \xi$, where $\xi = \Id_{[0,2\pi]}$. Define $\xi' = \frac{1}{2}(\xi - \pi)$. 
-    
+    To show this we need a few simple measure-theoretic facts:
+    \begin{enumerate}
+        \item By definition, the density function of a random variable uniformly
+        distributed on some set $A\subset \R$ where $\lambda(A) < \infty$ is
+        $\frac{1}{\lambda(A)}$.  Moreover, for any measurable-subset $B\subset
+        A$, $\Pr_A[B] = \frac{\lambda(B)}{\lambda(A)}$. For brevity, We call
+        $\Pr_A$ the Lebesgue probability measure on $A$. 
+        \item Let $C\subset D \subset G \subset \R$ (be measurable-subsets of
+        $\R$) and $\Pr_D, \Pr_G$ be the Lebesgue probability measures on $D,G$,
+        respectively. Then, by definition, $\Pr_D[C] =
+        \frac{\lambda(C)}{\lambda(D)}$ and $\Pr_G[D] =
+        \frac{\lambda(D)}{\lambda(G)}$. It follows that $\Pr_G[C] =
+        \frac{\lambda(C)}{\lambda(G)} = \Pr_D[C]\Pr_G[D]$.
+    \end{enumerate}
+    Let $(\Omega_1, \cG_1, \Pr_{\Omega_1})$ and $(\Omega_2, \cG_2,
+    \Pr_{\Omega_2})$ be the probability subspaces of $[0,2\pi]$ with the
+    Lebesgue probability measure, where $\Omega_1 =[0,\pi/2] \cup [3\pi/2,2\pi]$
+    and $\Omega_2 = [\pi/2,3\pi/2]$. Also, let $\Pr_{\Omega_1}, \Pr_{\Omega_2}$
+    be the Lebesgue probability measures on $\Omega_1,\Omega_2$, respectively.
+    Suppose $\xi = \Id_{[0,2\pi]}$, $\xi_1 = \Id_{[0,\pi/2] \cup
+    [3\pi/2,2\pi]}$, $\xi_2 = \Id_{[\pi/2,3\pi/2]}$, and $\eta = \sin(\xi)$.
+    Then, we start by finding the distribution of $\eta$:
+    \begin{align*}
+        \Pr\left[\set{\omega \in [0,2\pi]: \eta(\omega) \leq x}\right] &= \Pr\left[\set{\omega \in [0,\pi/2]\cup [3\pi/2,2\pi]: \eta(\xi(\omega)) \leq x}\right] \\
+        &\qquad\qquad\qquad + \Pr\left[\set{\omega \in [\pi/2,3\pi/2]: \eta(\xi(\omega)) \leq x}\right], \\
+        &= \frac{1}{2}\Pr_{\Omega_1}\left[\set{\omega \in \Omega_1: \eta(\xi_1(\omega)) \leq x}\right] + \frac{1}{2}\Pr_{\Omega_2}\left[\set{\omega \in \Omega_2: \eta(\xi_2(\omega)) \leq x}\right], \\
+        &= \frac{1}{2}F_1(\arcsin(x)) + \frac{1}{2}F_2(\arcsin(x)),
+    \end{align*}
+    where $F_1,F_2$ are the distribution functions for $\xi_1,\xi_2$, respectively. Differentiating with respect to $x$, we yield the density function:
+    \begin{align*}
+        \frac{1}{2}\left(F_1(\arcsin(x)) + F_2(\arcsin(x))\right)' &= \frac{1}{2\sqrt{1-x^2}}\left(F_1'(\arcsin x) + F_2'(\arcsin x)\right), \\
+        &= \frac{1}{2\sqrt{1-x^2}}\left(\frac{1}{\pi} + \frac{1}{\pi}\right),\\
+        &= \frac{1}{\pi\sqrt{1-x^2}}.
+    \end{align*}
 \end{solution}
 \begin{problem}{12}
 \end{problem}
@@ -134,10 +183,15 @@
 \begin{problem}{14}
 \end{problem}
 \begin{solution}
-    
+    This is essentially the \href{https://en.wikipedia.org/wiki/Borel-Cantelli_lemma}{Borel-Cantelli lemma}. 
 \end{solution}
 \begin{problem}{15}
 \end{problem}
 \begin{solution}
-    
+    If $F$ is a continuous distribution of a random variable $\xi$ on the probability space $(\Omega, \cG, \cP)$, then it must be that $F$ is injective on $\img \xi$. Consider, now a random variable $\eta = F(\xi)$. We proceed to find the distribution of this $\eta$:
+    \begin{align*}
+        \Pr[\set{\omega \in \Omega: \eta(\xi(\omega)) \leq x}] &= \Pr[\set{\omega \in \Omega: \xi(\omega) \leq F^{-1}(x)}], \\
+        &= F(F^{-1}(x)).
+    \end{align*}
+    \color{brickred}{Note that unless $F$ is bijective, $F\circ F^{-1} \neq \Id$. Recall, that there exists a right-inverse if and only if $F$ is surjective.} 
 \end{solution}

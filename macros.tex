@@ -159,6 +159,44 @@
             \end{mdframed}
 }
 
+% Caligraphic caps
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+% Script caps
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\sE}{\mathscr{E}}
+\newcommand{\sF}{\mathscr{F}}
+\newcommand{\sG}{\mathscr{G}}
+\newcommand{\sI}{\mathscr{I}}
+\newcommand{\sL}{\mathscr{L}}
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
+
 % theorem envs
 \theoremstyle{definition}
 \newtheorem*{lem}{Lemma}
@@ -181,9 +219,9 @@
 % Probability
 \newcommand{\Prob}[1]{\mathbb{P}\left[#1\right]}
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
-\newcommand{\Var}[1]{\mathbf{Var}\left[#1\right]}
+\DeclareMathOperator{\Var}{Var}
 \newcommand{\Cov}[1]{\mathbf{Cov}[#1]}
-\renewcommand{\Pr}{\Prob}
+\renewcommand{\Pr}{\mathbb{P}}
 \DeclareMathOperator{\Bin}{Bin}
 \DeclareMathOperator{\Pois}{Pois}
 \DeclareMathOperator{\Geom}{Geom}
