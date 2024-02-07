@@ -76,7 +76,6 @@
     Now, we take the limit as $r,n\to\infty$ and $n/r \to \rho > 0$.
 \end{solution}
 \begin{problem}{7}
-    \color{brickred}{Missing variance of the Poisson distribution.}
 \end{problem}
 \begin{solution}
     Recall, that the Poisson distribution is the measure on $\Z^+$ such that for
@@ -90,7 +89,17 @@
         &= \frac{\lambda}{e^\lambda}e^\lambda, \tag{by Taylor expansion} \\
         &= \lambda.
     \end{align*}
-    Now, we find the variance using the formula $\Var[\xi] = \Exp{\xi^2} - (\Exp{\xi})^2$.
+    Now, we find the variance using the formula $\Var[\xi] = \Exp{\xi^2} - (\Exp{\xi})^2$. So,
+    \begin{align*}
+        \Exp{\xi^2} &= \sum_{n=0}^\infty \xi(n)^2\Pr[n], \\
+        &= e^{-\lambda}\sum_{n=1}^\infty \frac{\lambda^n n}{(n-1)!}, \\
+        &= \lambda e^{-\lambda} \sum_{n=0}^\infty \frac{\lambda^n (n+1)}{n!}, \\
+        &= \lambda e^{-\lambda} \sum_{n=0}^\infty \frac{\lambda^n}{n!} + \sum_{n=1}^\infty \frac{\lambda^n}{(n-1)!}, \\
+        &= \lambda e^{-\lambda} \left(e^\lambda + \lambda \sum_{n=0}^\infty \frac{\lambda^n}{n!}\right), \\
+        &= \lambda e^{-\lambda} \left(e^\lambda + \lambda e^\lambda\right), \\
+        &= \lambda^2 + \lambda.
+    \end{align*}
+    Therefore, $\Var[\xi] = \Exp{\xi^2} - (\Exp{\xi})^2 = (\lambda^2 + \lambda) - \lambda^2 = \lambda$ and the variance of the Poisson distribution is the same as its expected value.
 \end{solution}
 \begin{problem}{9}
 \end{problem}
