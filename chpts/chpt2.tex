@@ -1,6 +1,58 @@
 Some brief notes before the problems:
 \begin{itemize}
-    \item \color{brickred}{Koralov and Sinai use $\times$ instead of $\otimes$ for the product $\sigma$-algebra. Moving forward, the reader needs to be cautious about what the operands are. If they are $\sigma$-algebras, we understand the result of the expression to be the aforementioned product.} 
+    \item \color{brickred}{Koralov and Sinai use $\times$ instead of $\otimes$ for the product $\sigma$-algebra. Moving forward, the reader needs to be cautious about what the operands are. For if they are $\sigma$-algebras, we understand the result of the expression to be the aforementioned product.} 
 \end{itemize}
 \begin{problem}{1}
 \end{problem}
+\begin{solution}
+    Directly apply the definition of the binomial distribution. Let $X = \{0,1\}$. Define the random variable $\chi_i(\omega)$ for $1\leq i\leq 5$ to be 1 if $\omega = 1$ and zero otherwise. Then, let $\nu_5 = \sum_{i=1}^5 \chi_i$. $\nu_5$ is a binomial random variable. Thus,
+    \begin{align*}
+        \Pr[\nu_5 = 3] &= \binom{5}{3} \frac{1}{2^5} = \frac{5}{16}.
+    \end{align*}
+\end{solution}
+\begin{problem}{2}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{3}
+\end{problem}
+\begin{solution}
+    We directly apply the de Moivre-Laplace Theorem. Let $X_i(\omega_i)$ be a random variable that is 1 if $\omega_i =\text{heads}$ and 0 otherwise. Then, let $\nu_n = \sum_{i=1}^n X_i$. Then, for $n=1000$, $\Exp{\nu_n} = 500$ and $\Var{\nu_n} = 250$. $k=600$ as the actual number of heads that we saw during all of the coin flips. Therefore, 
+    $z = (600 - 500) / \sqrt{250} = 20/\sqrt(10)$. Therefore, by the de Moivre-Laplace theorem:
+    \begin{align*}
+        \Pr\left[\frac{\nu_n - \Exp{\nu_n}}{\sqrt{\Var(\nu_n)}} \geq z\right] &\geq \int_{20/\sqrt{10}}^\infty \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}z^2\right)~dz, \\
+        &\leq 10^{-5}.
+    \end{align*}
+    So, it is highly unlikely that the coin is fair.
+\end{solution}
+\begin{problem}{4}
+    
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{5}
+    
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{6}
+    
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{7}
+    
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{8}
+    
+\end{problem}
+\begin{solution}
+    
+\end{solution}

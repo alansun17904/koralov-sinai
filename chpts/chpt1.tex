@@ -189,10 +189,35 @@
 \begin{solution}
     
 \end{solution}
-\begin{problem}{14}
+\begin{problem}{14}    
 \end{problem}
 \begin{solution}
-    This is essentially the \href{https://en.wikipedia.org/wiki/Borel-Cantelli_lemma}{Borel-Cantelli lemma}. 
+    This is a weaker version of the \href{https://en.wikipedia.org/wiki/Borel-Cantelli_lemma}{Borel-Cantelli lemma}. Consider the Lebesgue probability measure on $[0,1]$. And then consider the events $\left[0,\frac{1}{n}\right]$ for $n = 1,2,\ldots$. It follows that $\sum_{k=1}^\infty \Pr\left[\left[0,\frac{1}{n}\right]\right] \not < \infty$, but we know that the limit superior of the probability of this sequence of events is 0. Such a sequence of events cannot be described by the stronger version of the Borel-Cantelli lemma, however, the preconditions in this problem allow for this ``counter example.''
+
+    First, we show the following lemma:
+    \begin{lemma}\label{lemma:set-diff}
+        For any indexed collection of sets $C_1,C_2,\ldots,C_n$, \[
+            \bigcup_{k=1}^n C_k = C_1 \cup \bigcup_{k=1}^{n-1} C_{k+1} \setminus C_k.  
+        \]
+    \end{lemma}
+    \begin{proof}
+        We proceed by way of induction. Suppose that $n=2$, then $C_1 \cup (C_2 \setminus C_1) = C_1 \cup (C_1^c \cap C_2) = (C_1 \cup C_1^c) \cap (C_2 \cup C_1) = C_1 \cup C_2$. Assuming the claim true for all $n < N$, we now prove it for $n=N$:
+        \begin{align*}
+            C_1 \cup \bigcup_{k=1}^{n-1} (C_{k+1} \setminus C_k) &= \left(C_1 \cup \bigcup_{k=1}^{n-2} (C_{k+1} \setminus C_k)\right)\cup (C_n\setminus C_{n-1}), \\
+            &= \left(\bigcup_{k=1}^{n-1} C_k \right) \cup (C_{n-1}^c \cap C_n), \tag{by ind. hyp.}\\
+            &= \left(\bigcup_{k=1}^{n-2} C_k\right) \cup \left(C_{n-1} \cup (C_{n-1}^c \cap C_n)\right), \\
+            &= \left(\bigcup_{k=1}^{n-2} C_k\right) \cup (C_n \cup C_{n-1}), \\
+            &= \bigcup_{k=1}^n C_k.
+        \end{align*}
+    \end{proof}
+    With this, we show the desired result:
+    \begin{align*}
+        \Pr\left[\bigcap_{n=1}^\infty \bigcup_{k=n}^\infty C_k\right] &= \lim_{n\to\infty} \Pr\left[\bigcup_{k=n}^\infty C_k\right], \\
+        &= \lim_{n\to\infty} \Pr\left[C_n \cup \bigcup_{k=n}^\infty C_{k+1} \setminus C_k\right], \\
+        &\leq \lim_{n\to\infty} \Pr[C_n] + \lim_{n\to\infty} \sum_{k=n}^\infty \Pr[C_{k+1} \setminus C_k], \\
+        &= 0.
+    \end{align*}
+    The second equality follows from Lemma~\ref{lemma:set-diff} and the last equality follows from the given.
 \end{solution}
 \begin{problem}{15}
 \end{problem}

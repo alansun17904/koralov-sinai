@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{lipsum}
+\input{../macros.tex}
+\everymath{\displaystyle}
+\usepackage{enumitem}
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{fontawesome}
+\usepackage[weather]{ifsym}
+\usepackage{hyperref}
+
+\usepackage{xcolor}
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+
+\newcommand{\cold}{{\color{babyblue}{\Snowflake}}}
+\newcommand{\elegant}{{\color{brickred}{\ding{46}}}}
+\newcommand{\prac}{{\color{arsenic}{\ding{43}}}}
+\newcommand{\know}{{\color{arylideyellow}{\Lightning}}}
+
+
+\begin{document}
+\fancytitle{\textit{Theory of Probability and Random Processes}}{Need to Knows}{Koralov and Sinai}
+Here are a list of things, both theorems and problems, that I think are important to know how to do by heart. Therefore, they warrant frequent review.
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        \textbf{Key}
+        \par \cold: Things that I need to know off the top of my head. 
+        \par \prac: Recall the result off the top of my head and if you gave me 15 minutes, I could give you a formal proof or explanation.
+        \par \elegant: Elegant results that serve as great examples of \cold~or \prac~concepts. These are also results that if you gave me 30 minutes to an hour, I should be able to derive.
+        \par \know: I can recall this theorem without searching it up or referencing any text.
+    }%
+}
+\section{Random Variables and Their Distributions}
+\begin{itemize}[nosep]
+    \item[\cold] \textit{Define} a probability space.
+    \item[\cold] \textit{Define} a random variable
+    \item[\cold] \textit{Define} a probability distribution of a random variable (or the probability distribution induced by a random variable).
+    \item[\cold] \textit{Define} the expectation of a random variable. 
+    \item[\cold] \textit{Define} the variance of a random variable. \textit{Prove} that $\Var{\xi} = \Exp{\xi^2} - \Exp{\xi}$.
+    \item[\prac] \textit{Prove} Markov's inequality.
+    \item[\prac] \textit{Prove} Chebyshev's inequality.
+    \item[\cold] \textit{Define} the correlation coefficient of two random variables. 
+    \item[\prac] \textit{Prove} that the correlation coefficient is less than or equal to 1. And if the correlation coefficient of $\xi_1,\xi_2$ is 1, then almost surely $\Exp{\xi_1} = a\Exp{\xi_2} + b$ for some $a,b \in \R$. 
+    \item[\prac] \textit{Define} a distribution function. 
+    \item[\prac] \textit{Prove} that any distribution function is right-continuous.
+    \item[\cold] \textit{Prove} the Borel-Cantelli lemma. 
+    \item[\prac] \textit{Prove} that both the mean and variance of the Poisson distribution, $\Pois(\lambda)$, is $\lambda$. 
+    \item[\elegant] Let $x_1,x_2$ be two integers randomly and independently chosen from the set $\{1,2,\ldots,n\}$ according to the uniform distribution. Denote this probability measure as $\Pr^n$. What is the space of elementary outcomes? Let $A^n$ be the probability that the two numbers are coprime. What is $\lim_{n\to\infty} \Pr^n[A^n]$. 
+    \item[\elegant] Suppose there are $n$ letters addressed to $n$ different people, and $n$ envelopes with addresses. The letters are mixed and then randomly placed into the envelopes. Find the probability that at least one letter is in the correct envelope. Find the limit of this probability as $n\to\infty$.
+\end{itemize}
+\section{Sequences of Independent Trials}
+\begin{itemize}[nosep]
+    \item[\cold] \textit{Define} a homogeneous sequence of independent random variables. 
+    \item[\cold] \textit{Prove} the law of large numbers.
+    \item[\know] \textit{Prove} the MacMillan Theorem.
+    \item[\elegant] \textit{Prove} using Bernstein polynomials, Weierstrass' Theorem.
+    \item[\prac] \textit{Prove} the Glivenko-Cantelli Theorem.
+    \item[\elegant] \textit{Prove} the Poisson Limit Theorem.
+\end{itemize}
+
+\end{document}
