@@ -13,7 +13,53 @@ Some brief notes before the problems:
 \begin{problem}{2}
 \end{problem}
 \begin{solution}
-    
+    We present two alternative ways to solve this problem one involving chains and the other geometric series. We first present the solution involving chains. We draw the state space below, where each node denotes a distinct score and the edges between states represent the transition probabilities
+    \begin{center}
+        \begin{tikzpicture}[
+            n/.style={draw, circle, minimum size=0.7cm, thick},
+            p/.style={->, thick}
+        ]
+            \node[n] (a) at (0,0) {\tiny 9:8};
+            \node[n] (b) at (-1,-1) {\tiny 10:8};
+            \node[n] (c) at (-2,-2) {\tiny 11:8};
+            \node[n] (d) at (0,-2) {\tiny 10:9};
+            \node[n] (e) at (-1,-3) {\tiny 11:9};
+            \node[n] (f) at (1,-3) {\tiny 10:10};
+            \node[n] (g) at (1,-1) {\tiny 9:9};
+            \draw[p] (a) -- node[above] {\tiny 0.6} (b);
+            \draw[p] (b) -- node[above] {\tiny 0.6} (c);
+            \draw[p] (b) -- node[above] {\tiny 0.4} (d);
+            \draw[p] (d) -- node[above] {\tiny 0.6} (e);
+            \draw[p] (d) -- node[above] {\tiny 0.4} (f);
+            \draw[p] (a) -- node[above] {\tiny 0.4} (g);
+        \end{tikzpicture}
+        \qquad\qquad
+        \begin{tikzpicture}[
+            n/.style={draw, circle, minimum size=0.7cm, thick},
+            p/.style={<->, thick}
+        ]
+            \node[n] (0) at (0,1.5) {\small 0};
+            \node[n] (1) at (1,1.5) {\small 1};
+            \node[n] (2) at (2,1.5) {\small 2};
+            \node[n] (-1) at (-1,1.5) {\small -1}; 
+            \node[n] (-2) at (-2,1.5) {\small -2};
+            \draw[p] (0) -- (1);
+            \draw[p] (1) -- (2);
+            \draw[p] (0) -- (-1);
+            \draw[p] (-1) -- (-2);
+            \node at (0,0) {};
+        \end{tikzpicture}
+    \end{center}
+    It remains to find the probability that Andrew wins from either 9:9 or 10:10 which is the same since both states require Andrew to win two consecutive points. This, then induces a new chain (see above). Denote by $a,b,c$ the probability that Andrew wins from being one point down, drawn, and one point up. Then, 
+    \begin{align*}
+        a &= 0.6b, \\
+        b &= 0.4a + 0.6c, \\
+        c &= 0.4b + 0.6b.
+    \end{align*}
+    So, $c = 0.36/0.52$. Thus, the probability that Andrew wins is then the aggregate of all states in the chain multiplied by their transition probabilities:
+    \[
+        \Pr[\text{Andrew wins}] = 0.4\left(\frac{0.36}{0.52}\right) + 0.6\left(0.6 + 0.4\left(0.4\left(\frac{0.36}{0.52}\right) + 0.6\right)\right) = 0.847.  
+    \]
 \end{solution}
 \begin{problem}{3}
 \end{problem}
@@ -33,10 +79,11 @@ Some brief notes before the problems:
     
 \end{solution}
 \begin{problem}{5}
-    
 \end{problem}
 \begin{solution}
-    
+    Let $\nu^n$ be the number of sixes that appear from $n$ tosses of a die. Then, it follows that $\Exp{\nu^{12000}} = 2000$ and $\Var\left[{\nu^{12000}}\right] = 12000\cdot\frac{5}{36} \approx 1666$. Using the de Moivre-Laplace Theorem, we approximate $\frac{\nu^n - \Exp{\nu^n}}{\sqrt{\Var[\nu^n]}}$ as a standard normal distribution. Therefore,
+    \[\Pr[1900 \leq \nu^n \leq 2100] = \Phi(2.45) - \Phi(-2.45),\]
+    where $\Phi(\cdot)$ is the distribution function of the normal distribution.
 \end{solution}
 \begin{problem}{6}
     
