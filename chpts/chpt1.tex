@@ -64,7 +64,6 @@
     \end{align*}
 \end{solution}
 \begin{problem}{6}
-    \color{brickred}{Not too sure how to take the limit here.}
 \end{problem}
 \begin{solution}
     The first part of the question is a direct application of a stars and bars
@@ -73,7 +72,13 @@
     \[
         \Pr\left[{x_1 = a}\right] = \binom{n-a+r-2}{r-2} / \binom{n+r-1}{r-1} =  \frac{(r-1)n!(n-a+r-2)!}{(n+r-1)!(n-a)!}.
     \]
-    Now, we take the limit as $r,n\to\infty$ and $n/r \to \rho > 0$.
+    Now, we take the limit as $r,n\to\infty$ and $n/r \to \rho > 0$. 
+    \begin{align*}
+        \lim_{\substack{n,r\to\infty\\ n/r\to\rho}}  \frac{(r-1)n!(n-a+r-2)!}{(n+r-1)!(n-a)!} &= \lim_{\substack{n,r\to\infty\\ n/r\to\rho}} \frac{(r-1)n(n-1)\cdots (n-a+1)}{(n+r-1)(n+r-2)\cdots (n-a+r-1)}, \\
+        &\approx  \lim_{\substack{n,r\to\infty\\ n/r\to\rho}} \frac{rn^a}{(n+r)^{a+1}}, \\
+        &= \frac{r(\rho r)^a}{(\rho r + r)^{a+1}}, \\
+        &= \frac{\rho^a}{(\rho + 1)^a}.
+    \end{align*}
 \end{solution}
 \begin{problem}{7}
 \end{problem}

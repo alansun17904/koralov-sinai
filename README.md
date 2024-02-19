@@ -3,7 +3,8 @@ A collection of my solutions to *Theory of Probability and Random Processes* by 
 
 ## Progress
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
-- [ ] Chapter 1
-    - Problem 6. I have no idea how to evaluate the limit here. I've already tried using Stirling's approximation, but this isn't giving me anything that I could work with. Intuitively, I expect the limit to be some Poisson distribution with expected value $0$. 
+- [x] Chapter 1
 - [ ] Chapter 2
+- [ ] Chapter 3: Skipping this for now since this is just a measure theory review.
+- [ ] Chapter 4
 
