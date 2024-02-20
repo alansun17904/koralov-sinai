@@ -1,10 +1,45 @@
 \begin{problem}{1}
-
 \end{problem}
 \begin{solution}
-
+We directly apply the definition of conditional probability:
+\begin{align*}
+    \Pr[\omega_1 = 1 | \omega_1 + \ldots + \omega_n = m] &= \frac{\Pr[\omega_1 = 1 \cap \omega_1 + \ldots + \omega_n = m]}{\Pr[\omega_1 + \ldots + \omega_n = m]}, \\
+    &= \frac{\binom{n-1}{m-1}p^m(1-p)^{n-m}}{\binom{n}{m}p^m(1-p)^{n-m}}, \\
+    &= \binom{n-1}{m-1} \big/ \binom{n}{m}, \\
+    &= \frac{m}{n}.
+\end{align*}
 \end{solution}
 \begin{problem}{2}
+\end{problem}
+\begin{solution}
+    We are looking for a distribution that is \textit{memoryless}, both the exponential distribution and the Poisson distribution satisfy this property. Let $\xi$ be a exponentially-distributed random variable, parameterized by $\lambda$. Then, 
+    $\Pr[\xi > x] = e^{-\lambda x}$ and 
+    \begin{align*}
+        \Pr[\xi > x+y | \xi > x] &= \frac{\Pr[\xi > x+y]}{\Pr[\xi > x]}, \\
+        &= \frac{e^{-\lambda(x+y)}}{e^{-\lambda x}}, \\
+        &= e^{-\lambda y}.
+    \end{align*}
+\end{solution}
+\begin{problem}{3}
+\end{problem}
+\begin{solution}
+    Let $H^1, H^2$ denote the event that heads appears on the first and second toss, respectively. Then,
+    \begin{align*}
+        \Pr[H^2|H^1] &= \frac{\Pr[H^1 \cap H^2]}{\Pr[H^1]}, \\
+        &= \frac{1/2(1/2^2) + 1/2(0.6^2)}{1/2(1/2) + 1/2(0.6)}, \\
+        &= 0.55.
+    \end{align*}
+\end{solution}
+\begin{problem}{4}
+\end{problem}
+\begin{solution}
+\end{solution}
+\begin{problem}{5}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{6}
 \end{problem}
 \begin{solution}
     
