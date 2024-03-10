@@ -73,10 +73,18 @@ Some brief notes before the problems:
     So, it is highly unlikely that the coin is fair.
 \end{solution}
 \begin{problem}{4}
-    
 \end{problem}
 \begin{solution}
-    
+    We show that $\Pr\left[\left|\frac{\nu^n}{n} - p\right| > \epsilon_n\right] \to 0$ as $n\to \infty$:
+    \begin{align*}
+        \Pr\left[\left|\frac{\nu^n}{n} - p\right| > \epsilon_n\right] &= \Pr[|\nu^n - np| > n\epsilon_n], \\
+        &\leq \frac{\Var{\nu^n}}{n^2 \epsilon_n^2}, \\
+        &= \frac{np(1-p)}{n(n\epsilon_n)^2}, \\
+        &= \frac{p(1-p)}{(\sqrt{n}\epsilon_n)^2} \to 0,
+    \end{align*}
+    as $n\to\infty$ since $\sqrt{n}\epsilon_n \to \infty$ as $n\to\infty$.
+
+    \textcolor{brickred}{\textit{Remark:}} Even though this problem is fairly simple, it demonstrates something profound about the law of large numbers --- its convergence rate. Specifically, the probability that $\nu^n$ lies in a neighborhood of $O(\sqrt{n})$ tends to 1, as $n\to\infty$. Moreover, the probability that $\nu^n = k$ decays with rate $O(1/\sqrt{n})$ if $k \in (np - O(\sqrt{n}), np + O(\sqrt{n}))$. This is easy to see since we can approximate the distribution within this neighborhood with a crude uniform distribution. Note that this is the exact setup of the De Moivre-Laplace Theorem.
 \end{solution}
 \begin{problem}{5}
 \end{problem}
@@ -86,10 +94,20 @@ Some brief notes before the problems:
     where $\Phi(\cdot)$ is the distribution function of the normal distribution.
 \end{solution}
 \begin{problem}{6}
-    
 \end{problem}
 \begin{solution}
-    
+    \begin{align*}
+        \Pr[\eta_n \leq t] &= 1 - \Pr[\eta_n > t], \\
+        &= 1 - \Pr[\omega_i \geq t]^n, \tag{by i.i.d.}, \\
+        &= 1 - (1-t)^n.
+    \end{align*}
+    Next, we evaluate the limit as $n\to\infty$ of $n\eta_n$:
+    \begin{align*}
+        \lim_{n\to\infty} \Pr[n\eta_n \leq t] &= \lim_{n\to\infty} 1 - \Pr[n\eta_n > t], \\
+        &= \lim_{n\to\infty} 1 - \Pr\left[\eta_n > \frac{t}{n}\right], \\
+        &= \lim_{n\to\infty} 1 - \left(1 - \frac{t}{n}\right)^n, \\
+        &= 1-e^{-t}.
+    \end{align*}
 \end{solution}
 \begin{problem}{7}
     
@@ -99,6 +117,12 @@ Some brief notes before the problems:
 \end{solution}
 \begin{problem}{8}
     
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{9}
 \end{problem}
 \begin{solution}
     

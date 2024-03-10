@@ -3,6 +3,7 @@
 \input{../macros.tex}
 \everymath{\displaystyle}
 \usepackage{enumitem}
+\usepackage{comment}
 \usepackage{bbding}
 \usepackage{pifont}
 \usepackage{fontawesome}
@@ -22,6 +23,9 @@
 
 
 \begin{document}
+
+\newenvironment*[][]{answer}{\if\showanswers}{\fi}
+
 \fancytitle{\textit{Theory of Probability and Random Processes}}{Need to Knows}{Koralov and Sinai}
 Here are a list of things, both theorems and problems, that I think are important to know how to do by heart. Therefore, they warrant frequent review.
 
@@ -37,6 +41,9 @@ Here are a list of things, both theorems and problems, that I think are importan
 \section{Random Variables and Their Distributions}
 \begin{itemize}[nosep]
     \item[\cold] \textit{Define} a probability space.
+    \begin{answer}
+        asdf
+    \end{answer}
     \item[\cold] \textit{Define} a random variable
     \item[\cold] \textit{Define} a probability distribution of a random variable (or the probability distribution induced by a random variable).
     \item[\cold] \textit{Define} the expectation of a random variable. 
@@ -72,7 +79,18 @@ Here are a list of things, both theorems and problems, that I think are importan
     \item[\cold] \textit{Prove} Bayes' Theorem.
     \item[\cold] \textit{Define} independence of two or more events, $\sigma$-algebras, and random variables. 
     \item[\prac] \textit{Prove} if two random variables are independent, then the expectation of their product is equal to the product of their expectations. 
+    \item[\cold] \textit{Define} a $\pi$-system and Dynkin system.
+    \item[\prac] Let $\xi_1,\ldots,\xi_n$ be independent random variables, $m_1+\ldots+m_k= n$ and $f_1,\ldots,f_k$ be measurable functions of $m_1,\ldots,m_k$ variables respectively. Then, \textit{prove} the random variables $f_1(\xi_1,\ldots,\xi_{m_1}),$ $\ldots, f_k(\xi_{m_1+\ldots+m_{k-1}+1},\ldots,\xi_n)$ are independent. 
 \end{itemize}
 
+\section{Markov Chains with a Finite Number of States}
+\begin{itemize}[nosep]
+    \item[\cold] \textit{Define} a stochastic matrix. 
+    \item[\cold] \textit{Prove} that a product of stochastic matrices is a stochastic matrix. 
+    \item[\cold] \textit{Define} a Markov chain.
+    \item[\cold] \textit{Define} a homogeneous Markov chain.
+    \item[\cold] \textit{Define} an ergodic stochastic matrix. \textit{Define} a homogeneous, ergodic, Markov chain.
+    \item[\cold] \textit{Define} a stationary distribution for a matrix of transition probabilities. 
+\end{itemize}
 
 \end{document}

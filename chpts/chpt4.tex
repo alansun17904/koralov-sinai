@@ -33,6 +33,18 @@ We directly apply the definition of conditional probability:
 \begin{problem}{4}
 \end{problem}
 \begin{solution}
+    Suppose that $\xi,\eta$ are two random variables such that both of their images is $\{a,b\}$. We show then that if $\Exp{\xi\eta} = \Exp{\xi}\Exp{\eta}$, then $\eta$ and $\xi$ are independent. Let $p,q$ be the probability that $\xi = a,\eta=a$, respectively. Then, 
+    \begin{align*}
+        \Exp{\xi}\Exp{\eta} &= (pa + (1-p)b)(qa + (1-q)b), \\
+        &= a^2pq + ab(p)(1-q) + ba(q)(1-p) + b^2(1-p)(1-q), \\
+        \Exp{\xi\eta} &= a\Pr[\eta=a,\xi=a] + ab\Pr[\eta=a,\xi=b] + ba\Pr[\eta=b,\xi=a] + b^2\Pr[\xi=b,\eta=b],
+    \end{align*}
+    This implies that 
+    \begin{align*}
+        \Pr[\xi=a,\eta=a] &= pq = \Pr[\xi=a]\Pr[\eta=a], \\
+        \Pr[\xi=b,\eta=b] &= (1-q)(1-p) = \Pr[\xi=b]\Pr[\eta=b].
+    \end{align*}
+    By Lemma 4.3, then events $\xi = a, \eta = b$ and $\eta=a,\xi=b$ are also independent. 
 \end{solution}
 \begin{problem}{5}
 \end{problem}
@@ -40,6 +52,12 @@ We directly apply the definition of conditional probability:
     
 \end{solution}
 \begin{problem}{6}
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+\begin{problem}{7}
+
 \end{problem}
 \begin{solution}
     
