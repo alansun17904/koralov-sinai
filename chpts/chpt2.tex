@@ -116,7 +116,6 @@ Some brief notes before the problems:
     
 \end{solution}
 \begin{problem}{8}
-    
 \end{problem}
 \begin{solution}
     
@@ -125,5 +124,28 @@ Some brief notes before the problems:
 \begin{problem}{9}
 \end{problem}
 \begin{solution}
-    
+    Let $\Omega$ be the space of all sequences $(\omega_1, \ldots, \omega_n)$ of length $n$ such that $\omega_i \in \{1.03, 0.97\}$ chosen uniformly. Suppose that the stock price is $A$, then the stock price after a sequence of percent changes $(\omega_1,\ldots,\omega_n)$ is $A \cdot \prod_{i=1}^n \omega_i$. In order to apply de Moivre-Laplace, we need a sum of Bernoulli random variables. Thus, we naturally proceed to apply $\exp{(\log(\cdot))}$:
+    \begin{align*}
+        \exp\left(\log\left(A \prod_{i=1}^n \omega_i\right)\right) &= \exp\left(\log{A} + \sum_{i=1}^n \log(\omega_i)\right), \\
+        &= A\exp\left(\sum_{i=1}^n \log(\omega_i)\right),
+    \end{align*}
+    where in the last equality the term in the exponent is normally-distributed by the de Moivre-Laplace Theorem. We now derive this distribution. Let $X \sim N(\mu,\sigma^2)$ and $Z \sim \exp{X}$:
+    \begin{align*}
+        \Pr[Z\leq z] &= \Pr[\exp{X} \leq z], \\
+        &= \Pr[X\leq \log(z)], \\
+        &= \Phi_{\mu, \sigma^2}(\log(z)),
+    \end{align*}
+    where $\Phi_{\mu,\sigma^2}(\cdot)$ is the distribution function of a normally-distributed random variable with mean $\mu$ and variance $\sigma^2$. Then, it follows that the density function is $\frac{1}{z} p(\mu,\sigma^2;\log(z))$, where $p(\mu,\sigma;\cdot)$ is the density of a normally-distributed random variable.
+
+    It remains to derive the distribution of $X$ using the de Moivre-Laplace Theorem. First, we redefine the sample space. Let $\Omega'$ be the space of all sequences $(\omega_1,\ldots,\omega_n)$ of length $n$ such that $\omega_i \in \{\log(1.03),\log(0.97)\}$ chosen uniformly. Then,
+    \[
+        \Exp{\sum_{i=1}^n \omega_i} = \sum_{i=1}^n \Exp{\omega_i} = \frac{n}{2}(\log(0.9991)).
+    \]
+    And
+    \begin{align*}
+        \Var\left[{\sum_{i=1}^n \omega_i}\right] &= \Exp{\left(\sum_{i=1}^n \omega_i\right)^2} - \Exp{\sum_{i=1}^n \omega_i}^2, \\
+        &= \sum_{i=1}^n \Exp{\omega_i^2} + \sum_{1\leq i\neq j\leq n} \Exp{\omega_i}\Exp{\omega_j} - \Exp{\sum_{i=1}^n\omega_i}^2, \\
+        &= \frac{n}{2}\left(\log^2(1.03) + \log^2(0.97)\right) + \frac{n^2 - n}{4}\log^2(0.9991) - \frac{n^2}{4} \log^2(0.9991). 
+    \end{align*}
+    Evaluating the mean and variance for $n=250$, we have that $X \sim N(-0.112551, 0.225135)$. Applying the distribution function of the log-normal distribution with these parameters, we have $\Pr[Z \geq 1] = 0.4111$.
 \end{solution}
