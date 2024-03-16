@@ -4,7 +4,7 @@ A collection of my solutions to *Theory of Probability and Random Processes* by 
 ## Progress
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
 - [x] Chapter 1
-- [ ] Chapter 2
+- [ ] Chapter 2: Stuck on problem 7, 8.
 - [ ] Chapter 3: Skipping this for now since this is just a measure theory review.
 - [ ] Chapter 4
 

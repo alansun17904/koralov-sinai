@@ -118,7 +118,18 @@ Some brief notes before the problems:
 \begin{problem}{8}
 \end{problem}
 \begin{solution}
-    
+    Let $\Omega$ be the space of all binary sequences of length $n$ and also let $C_r$ be the set of all binary sequences of length $n$ with $r$ consecutive 1s. Then,  
+    \[
+        C_r = \bigsqcup_{i=1}^{n-r+1} \{\sigma \in \Omega: \sigma\,\text{has}\, r \,\text{consecutive 1s and is prefixed with}\, i-1\,\text{zeros}\}. \\
+    \]
+
+    % not just prefixed with zero, but there are no consecutive sequences 
+
+    Clearly, these sets is disjoint and contains any sequence that has $r$ consecutive 1s. Therefore, 
+    \begin{align*}
+        \Pr[C_r] &= \sum_{i=1}^{n-r+1} \Pr[\{\sigma \in \Omega: \sigma\,\text{has}\, r \,\text{consecutive 1s and is prefixed with}\, i-1\,\text{zeros}\}], \\
+        &= \sum_{i=1}^{n-r+1} \frac{1}{2^{r + i-1}}.
+    \end{align*}
 \end{solution}
 
 \begin{problem}{9}

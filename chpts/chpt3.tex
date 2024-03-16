@@ -1,5 +1,95 @@
 \begin{problem}{1}
 \end{problem}
 \begin{solution}
+    It suffices to show that 
+    \begin{equation}\label{eq:limit-sig-alg}
+        \{\omega \in \Omega: \lim_{n\to\infty} f_n(\omega) = f(\omega)\} = \bigcap_{i=1}^\infty \bigcup_{j=1}^\infty \bigcap_{k=j}^\infty \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| < \frac{1}{i}\right\}.
+    \end{equation}
+    This is because
+    \[
+        \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| < \frac{1}{i}\right\} =  (f_k - f)^{-1}\left(-\frac{1}{i},\frac{1}{i}\right).
+    \]
+    Since both $f_k$ and $f$ are $\cF$-measurable functions, then $f_k - f$ is also a measurable function. Moreover, since $(-1/i, 1/i)$ is clearly a Borel set, then $(f_k - f)^{-1}(-1/i, 1/i) \in \cF$. It follows from the axioms of a $\sigma$-algebra that the right hand-side of Eq.~\ref{eq:limit-sig-alg} is also a set in $\cF$. 
+
+    Now, we show Eq.~\ref{eq:limit-sig-alg}:
+    \begin{align*}
+        x \in \bigcap_{i=1}^\infty \bigcup_{j=1}^\infty \bigcap_{k=j}^\infty \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| < \frac{1}{i}\right\} &\Rightarrow x \in \bigcup_{j=1}^\infty\bigcap_{k=j}^\infty \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| <  \frac{1}{i}\right\}, \tag{$\forall i \in \N$} \\
+        &\Rightarrow \exists j, \forall k > j, x\in \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| <  \frac{1}{i}\right\}, \tag{$\forall i \in \N$}, \\
+        &\Rightarrow \forall i \in \N, \exists j, \forall k > j, |f_k(x) - f(x)| < \frac{1}{i}.
+    \end{align*}
+    It follows that $f_1,f_2,\ldots$ to $f$ at $x$. The other direction of the inclusion is trivial and its proof is omited as it results from the same logic above.
+\end{solution}
+
+\begin{problem}{2}
+\end{problem}
+\begin{solution}
     
+\end{solution}
+
+\begin{problem}{3}
+\end{problem}
+\begin{solution}
+    Let $\xi_n$ be a noramlly-distributed random variable parameterized by mean $n$ and variance $1$. Then, it is clear that $\xi_n$ converges pointwise to the random variable $\xi(\omega) = 0$, however, 
+    \[
+        \lim_{n\to\infty} \Exp{\xi_n} = \lim_{n\to\infty} n = \infty.
+    \]
+\end{solution}
+
+\begin{problem}{4}
+\end{problem}
+\begin{solution}
+    Let $\xi$ be a random variable such that $\Pr[\xi = A] = \Pr[\xi=B] = \frac{1}{2}$. Then it follows that 
+    \begin{align*}
+        \Var{\xi} &= \Exp{\xi^2} - \Exp{\xi}^2, \\
+        &= \frac{1}{2}A^2 + \frac{1}{2}B^2 - \left(\frac{1}{2}A + \frac{1}{2}B\right)^2, \\
+        &= \frac{1}{2}A^2 + \frac{1}{2}B^2 - \frac{1}{4}\left(A + B\right)^2, \\
+        &= \frac{1}{4}A^2 - \frac{1}{2}AB + \frac{1}{4}B^2, \\
+        &= \left(\frac{B-A}{2}\right)^2.
+    \end{align*}
+    Interestingly, this is the maximum variance a bounded random variable can achieve (see \href{https://en.wikipedia.org/wiki/Popoviciu%27s_inequality_on_variances}{Popoviciu's Inequality on Variances}).
+\end{solution}
+
+\begin{problem}{5}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{6}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{7}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{8}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{9}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{10}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{11}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{12}
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{13}
+\end{problem}
+\begin{solution}
 \end{solution}
