@@ -1,4 +1,5 @@
 \begin{problem}{1}
+    Let $\Pr$ be the probability distribution of the sequence of $n$ Bernoulli trials, $\omega = (\omega_1,\ldots,\omega_n)$, $\omega_i = 1$ or 0 with probabilities $p$ and $1-p$. Find $\Pr[\omega_1|\omega_1+\ldots+\omega_n=m]$.
 \end{problem}
 \begin{solution}
 We directly apply the definition of conditional probability:
@@ -10,6 +11,7 @@ We directly apply the definition of conditional probability:
 \end{align*}
 \end{solution}
 \begin{problem}{2}
+    Find the distribution function of a random variable $\xi$ which takes positive values and satisfies $\Pr[\xi > x + y | \xi > x] = \Pr[\xi > y]$ for all $x,y> 0$. 
 \end{problem}
 \begin{solution}
     We are looking for a distribution that is \textit{memoryless}, both the exponential distribution and the Poisson distribution satisfy this property. Let $\xi$ be a exponentially-distributed random variable, parameterized by $\lambda$. Then, 
@@ -21,6 +23,7 @@ We directly apply the definition of conditional probability:
     \end{align*}
 \end{solution}
 \begin{problem}{3}
+    Two coins are in a bag. One is symmetric, while the other is not --- if tossed it lands heads up with probability equal to 0.6. One coin is randomly pulled out of the bag and tossed. It lands heads up. What is the probability that the same coin will land heads up if tossed again?
 \end{problem}
 \begin{solution}
     Let $H^1, H^2$ denote the event that heads appears on the first and second toss, respectively. Then,
@@ -31,6 +34,7 @@ We directly apply the definition of conditional probability:
     \end{align*}
 \end{solution}
 \begin{problem}{4}
+    Suppose that each of the random variables $\xi$ and $\eta$ takes at most two values $a,b$. Prove that $\xi$ and $\eta$ are independent if $\Exp{\xi\eta} = \Exp{\xi}\Exp{\eta}$. 
 \end{problem}
 \begin{solution}
     Suppose that $\xi,\eta$ are two random variables such that both of their images is $\{a,b\}$. We show then that if $\Exp{\xi\eta} = \Exp{\xi}\Exp{\eta}$, then $\eta$ and $\xi$ are independent. Let $p,q$ be the probability that $\xi = a,\eta=a$, respectively. Then, 
@@ -47,17 +51,74 @@ We directly apply the definition of conditional probability:
     By Lemma 4.3, then events $\xi = a, \eta = b$ and $\eta=a,\xi=b$ are also independent. 
 \end{solution}
 \begin{problem}{5}
+    Give an example of three events $A_1, A_2, A_3$ which are not independent, yet pairwise independent.
 \end{problem}
 \begin{solution}
-    
+    We provide two examples which are credited to S.N. Bernstein\footnote{Bernstein, S. (1946) The Theory of Probabilities. Gostechizdat, Moscow, p. 348.}. Let $\Omega = \{000, 110, 101, 011\}$, $\cF = 2^\Omega$, and $\Pr$ be the probability measure that assigns to each elementary outcome the probability $\frac{1}{4}$. Let $A_i$ be the event that the $i$\textsuperscript{th} position is a 1. The events are clearly pairwise independent:
+    \begin{align}
+        \Pr[A_1 \cap A_2] &= \frac{1}{4} = \Pr[A_1]\Pr[A_2], \label{eq:indep1}\\
+        \Pr[A_1 \cap A_3] &= \frac{1}{4} = \Pr[A_1]\Pr[A_3], \label{eq:indep2}\\
+        \Pr[A_2 \cap A_3] &= \frac{1}{4} = \Pr[A_2]\Pr[A_3]. \label{eq:indep3}
+    \end{align}
+    However, they are clearly not independent since $\Pr[A_1\cap A_2\cap A_3] = 0$ and the product of their probabilities is nonzero. Here, the counterexample relies on the fact that the intersection of the events is empty. Next, we demonstrate another counterexample where the intersection of the events is nonempty. Let $A_i$ denote the event that the $i$\textsuperscript{th} position is a 0. Clearly, Eq.~\ref{eq:indep1}-\ref{eq:indep3} still hold. However, $\Pr[A_1 \cap A_2 \cap A_3] = \frac{1}{4} \neq \Pr[A_1]\Pr[A_2]\Pr[A_3]$. 
+    Interestingly, Bernstein's counterexample to this converse has been proved to be the smallest counterexample (in terms of the cardinality of the sample space) with three events\footnote{Stepniak, Czeslaw. "Bernstein's examples on independent events." The College Mathematics Journal 38.2 (2007): 140-142.}. In fact, it has also been shown\footnote{Stępniak, Czesław, and Tomasz Owsiany. "Are Bernstein's Examples on Independent Events Paradoxical?." Statistical Inference, Econometric Analysis and Matrix Algebra: Festschrift in Honour of Götz Trenkler (2009): 411-414.} that the minimal sample size required to existing $k$ independent events is $2^k$ and the minimal sample size for existing $k$ events each $k-1$ of them being independent is $2^{k-1}$. In other words, independent events are a luxury that only sufficiently rich sample spaces can have. 
 \end{solution}
 \begin{problem}{6}
+    Given an example of two random variables $\xi, \eta$ which are not independent, yet $\Exp{\xi\eta} = \Exp{\xi}\Exp{\eta}$. 
 \end{problem}
 \begin{solution}
     
 \end{solution}
+
 \begin{problem}{7}
 
+\end{problem}
+\begin{solution}
+\end{solution}
+
+\begin{problem}{9}
+    Two editors were independently proof-reading the same manuscript. One found $a$ misprints, the other found $b$ misprints. Of those, $c$ misprints were found by both of them. How would you estimate the total number of misprints in the manuscript?
+\end{problem}
+\begin{solution}
+    Suppose that each reader finds typos independently with probability $p, q$, respectively. Let $n$ denote the total number of typos. If $n$ is sufficiently large, then $a = pn$, $b = qn$, and $c = pqn$. Then, solving for $n$, we have that $n = \frac{ab}{c}$. 
+\end{solution}
+
+
+
+\begin{problem}{10}
+    Let $\xi,\eta$ be independent Poisson distributed random variables with expectations $\lambda_1,\lambda_2$, respectively. Find the distribution of $\zeta = \xi + \eta$. 
+\end{problem}
+\begin{solution}
+    If $\eta \sim \Pois(\lambda_1)$ and $\xi \sim \Pois(\lambda_2)$, then 
+    \begin{align*}
+        \Pr[\zeta = a] &= \sum_{k=0}^a \Pr[\eta = k]\Pr[\xi = a - k], \\
+        &= \sum_{k=0}^a \left(\frac{\lambda_1^k e^{-\lambda_1}}{k!}\right)\left(\frac{\lambda_2^{a-k}e^{-\lambda_2}}{2!(a-k)!}\right), \\
+        &= e^{-(\lambda_1 + \lambda_2)}\left(\frac{\lambda_2^a}{a!} + \frac{\lambda_1\lambda_2^{a-1}}{2!(a-1)!} + \ldots + \frac{\lambda_1^{a-1}\lambda_2}{2!(a-1)!} + \frac{\lambda_1^a}{a!}\right), \\
+        &= \frac{e^{-(\lambda_1 + \lambda_2)}}{a!}\left(\lambda_2^a + \lambda_1\lambda_2^{a-1}\cdot a + \lambda_1^2\lambda_2^{a-2} \cdot \frac{a(a-1)}{2} + \lambda_1^{a-2}\lambda_2^2 \cdot \frac{a(a-1)}{2} + \lambda_1^{a-1}\lambda_2 \cdot a + \lambda_1^a\right), \\
+        &=  \frac{e^{-(\lambda_1 + \lambda_2)}}{a!} \sum_{k=0}^a \binom{a}{k} \lambda_1^k \lambda_2^{a-k}, \\
+        &= \frac{e^{-(\lambda_1 + \lambda_2)}}{a!} \cdot (\lambda_1 + \lambda_2)^a.
+    \end{align*}
+    Therefore, $\zeta \sim \Pois(\lambda_1 + \lambda_2)$. Note that the first expression in the derivation is the discrete convolution between two random variables. 
+\end{solution}
+
+\begin{problem}{11}
+    Let $\xi,\eta$ be independent random variables. Assume that $\xi$ has the uniform distribution on $[0,1]$, and $\eta$ has the Poisson distribution with parameter $\lambda$. Find $\zeta = \xi + \eta$. 
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}{13}
+    Suppose that $A_1, A_2$ are independent algebras. Prove that $\sigma(A_1), \sigma(A_2)$ are also independent.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{14}
+Let $\xi_1,\xi_2,\ldots$ be independent identically distributed random variables and $N$ be an $\N$-valued random variable independent of $\xi_i$'s. Show that if $\xi_1$ and $N$ have finite expectation, then \[
+    \Exp{\sum_{i=1}^N \xi_i} = \Exp{N}\Exp{\xi_1}.
+\]
 \end{problem}
 \begin{solution}
     

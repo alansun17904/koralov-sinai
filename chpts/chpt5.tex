@@ -1,4 +1,33 @@
 \begin{problem}{1}
+    Let $P$ be a stochastic matrix. Prove that there is at least one non-negative vector $\pi$ such that $\pi P = \pi$. 
 \end{problem}
 \begin{solution}
+    Since the left and right eigenvalues of a square matrix are the same, then it follows that $\mathbf{1}P = \mathbf{1}$. However, there does not only exist the trivial eigenvector. We can in fact show that for every stochastic matrix there exists a stationary distribution. To prove this we use Brouwer's fixed point theorem:
+    \begin{theorem}
+        Every continuous function from a nonempty compact, convex subset $K$ of a Euclidean space to itself has a fixed point.
+    \end{theorem}
+    Let $P \in \R^{r\times r}$. We first show that the set of probability distributions over $r$ states is a convex subset of $\R^r$. 
+
+    % TODO: use Brouwer's fixed point theorem to show that there exists a non-trivial eigenvector.
+\end{solution}
+
+\begin{problem}{2}
+    Consider a homogeneous Markov chain on a finite set with the transition matrix $P$ and an initial distribution $\mu$. Prove that for any $0 < k < n$ the induced probability distribution on the space of sequences $\omega_k,\omega_{k+1},\ldots, \omega_n$ is also a homogeneous Markov chain. Find its initial distribution and the matrix of transition probabilities.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{3}
+    Consider a homogeneous Markov chain on a finite state space $X$ with transition matrix $P$ and the initial distribution $\delta_x$, $x \in X$, that is $\Pr[\omega_0 = x] = 1$. Let $\tau$ be the first $k$ such that $\omega_k \neq x$. Find the probability distribution of $\tau$. 
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}{4}
+    Consider the one-dimensional simple symmetric random walk (Markov chain on the state space $\Z$ with transition probabilities $p_{i,i+1} = p_{i,i-1} = 1/2$). Prove that it does not have a stationary distribution.
+\end{problem}
+\begin{solution}
+    
 \end{solution}

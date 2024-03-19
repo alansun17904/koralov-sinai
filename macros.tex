@@ -112,7 +112,7 @@
 
 %problem environment
 \newenvironment{problem}[2][Problem]{\large \begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}\vspace{1mm}\hline}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
 
 %problems list environment
 \newlist{subprob}{enumerate}{1}
@@ -121,7 +121,7 @@
 %solution environment
 \newenvironment{solution}[1][Solution]{
     \setcounter{nlem}{0}
-    \vspace{-2ex}
+    %\vspace{-2ex}
   \begin{proof}[#1]
 }{
   \phantom\qedhere\end{proof}
