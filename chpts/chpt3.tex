@@ -32,6 +32,7 @@
         &\geq \infty.
     \end{align*}
 \end{solution}
+Note that we just proved that if $\xi$ is a random variable that only takes on positive integers, then $\Exp{\xi} = \sum_{i=1}^\infty \Pr[\xi \geq i]$.
 
 \begin{problem}{3}
 \end{problem}
@@ -85,12 +86,23 @@
         &= 1 - F_\xi\left(\frac{1}{x}\right).
     \end{align*}
     Therefore, the density function of $\eta$, $p_\eta = \left(1-F_\xi\left(\frac{1}{x}\right)\right)' = \frac{1}{x^2}p_\xi\left(\frac{1}{x}\right)$. Now, we apply the definition of the expected value of $\xi$:
+    \begin{align*}
+        \Exp{\eta} &= \int_{-\infty}^\infty \frac{1}{x}p_\xi\left(\frac{1}{x}\right)~dx, \\
+        \intertext{make the substitution for $u = \frac{1}{x}$, then $du=-\frac{1}{x^2}$ and also apply the definition of the improper integeral. So, let $L,R \gg 0$, then}
+        &= \lim_{L\to\infty} \int_{1/L}^\infty -\frac{1}{u}p_\xi(u)~du + \lim_{R\to\infty}\int_0^{-1/R} \frac{1}{u}p_\xi(u)~du. 
+    \end{align*}
+    Since $p_\xi(0) > 0$ and $p_\xi$ is continuous, there exists $a > 0$ such that $p_\xi([0,a)) \subset \R^+$ and $p_\xi((-a,0]) \subset \R^+$. Thus, it follows from the definition of the Lebesgue integral that both 
+    \begin{align*}
+        \lim_{L\to\infty} \int_{1/L}^\infty -\frac{1}{u}p_\xi(u)~du &\leq \lim_{L\to\infty} -\frac{1}{1/L} \Pr[[0,a)], \\
+        \lim_{R \to\infty} \int_0^{-1/R} \frac{1}{u} p_\xi(u)~du &\geq \lim_{R\to\infty} \frac{1}{1/R} \Pr[(-a,0]],  
+    \end{align*}
+    Since the integrals go to $-\infty$ and $\infty$, respectively, the expected value is then undefined. 
 \end{solution}
 
 \begin{problem}{7}
 \end{problem}
 \begin{solution}
-    Here, we are essentially showing that convergence in $L^1$ implies almost surely pointwise convergence. 
+    
 \end{solution}
 
 \begin{problem}{8}
@@ -129,6 +141,16 @@
 \begin{problem}{12}
 \end{problem}
 \begin{solution}
+    We state Young's inequality here without proof. This is crucial to proving Hölder's ineqaulity.
+    \begin{theorem}[Young's inequality]
+        Suppose $1 < p < \infty$. Then, 
+        \[
+            ab \leq \frac{a^p}{p} + \frac{b^{q}}{q},  
+        \]
+        where $q$ is the dual exponent of $p$, for all $a, b \geq 0$.
+    \end{theorem}
+    Now, we prove Hölder's inequality:
+    Suppose first that $p=1,q=\infty$. 
 \end{solution}
 
 \begin{problem}{13}

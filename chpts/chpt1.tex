@@ -1,9 +1,11 @@
 \begin{problem}{1}
+    A man’s birthday is on March 1st. His father’s birthday is on March 2nd. One of his grandfather’s birthday is on March 3rd. How would you estimate the number of such people in the USA?
 \end{problem}
 \begin{solution} 
     $300\times {10}^{6} \times 0.5 \times \frac{2}{365^3}$
 \end{solution}
 \begin{problem}{2}
+    Suppose that $n$ identical balls are distributed randomly among m boxes. Construct the corresponding space of elementary outcomes. Assuming that each ball is placed in a random box with equal probability, find the probability that the first box is empty.
 \end{problem}
 \begin{solution}
     Suppose $n$ identical balls are thrown into $m$ boxes. Let $\Omega$ be the
@@ -15,6 +17,7 @@
     \]
 \end{solution}
 \begin{problem}{3} 
+    A box contains 90 good items and 10 defective items. Find the probability that a sample of 10 items has no defective items.
 \end{problem}
 \begin{solution}
     Let $\Omega$ be the set of tuples where the first entry ist he number of
@@ -24,6 +27,7 @@
     91}$.
 \end{solution}
 \begin{problem}{4}
+    Let $\xi$ be a random variable such that $\Exp{|\xi|^m} \leq AC^m$ for some positive constants $A$ and $C$, and all integers $m\geq 0$. Prove that $\Pr[|\xi| > C] = 0$. 
 \end{problem}
 \begin{solution}
     By way of contradiction, suppose that $\Pr\left[{|\xi| > C}\right] > 0$ for
@@ -38,6 +42,7 @@
     exist $A > 0$ such that $A \geq A'^m$ for all $m$, thus a contradiction.
 \end{solution}
 \begin{problem}{5}
+    Suppose there are n letters addressed to n different people, and n envelopes with addresses. The letters are mixed and then randomly placed into the envelopes. Find the probability that at least one letter is in the correct envelope. Find the limit of this probability as $n\to \infty$. 
 \end{problem}
 \begin{solution}
     This is the famous hat-check problem. We find the probability that no one
@@ -63,6 +68,10 @@
     \end{align*}
 \end{solution}
 \begin{problem}{6}
+    For integers $n$ and $r$, find the number of solutions of the equation \[
+        x_1 + \ldots + x_r = n  
+    \]
+    where $x_i \geq 0$ are integers. Assuming the uniform distribution on the space of the solutions, find $\Pr[x_1 = a]$ and its limit as $r\to\infty$, $n\to\infty$, and $n/r\to\rho>0$.
 \end{problem}
 \begin{solution}
     The first part of the question is a direct application of a stars and bars
@@ -80,6 +89,7 @@
     \end{align*}
 \end{solution}
 \begin{problem}{7}
+    Find the mathematical expectation and the variance of a random variable with Poisson distribution with parameter $\lambda$.
 \end{problem}
 \begin{solution}
     Recall, that the Poisson distribution is the measure on $\Z^+$ such that for
@@ -106,6 +116,7 @@
     Therefore, $\Var[\xi] = \Exp{\xi^2} - (\Exp{\xi})^2 = (\lambda^2 + \lambda) - \lambda^2 = \lambda$ and the variance of the Poisson distribution is the same as its expected value.
 \end{solution}
 \begin{problem}{9}
+    Prove that if $F$ is the distribution function of the random variable $\xi$, then $\Pr[\xi = x] = F(x) - \lim_{\delta \downarrow 0} F(x-\delta)$.
 \end{problem}
 \begin{solution}
     Recall that if $F$ is a distribution function of a random variable $\xi$
@@ -132,6 +143,7 @@
     The second equality follows $\sigma$-additivity of $\mathbb{P}$.
 \end{solution}
 \begin{problem}{10}
+    A random variable $\xi$ has density $p$. Find the density of $\eta = a\xi + b$ for $a, b \in \R$, and $a \neq 0$.
 \end{problem}
 \begin{solution}
     Let $F$ be the distribution of $\xi$ and let $\eta = a\xi + b$ where $a\neq
@@ -146,6 +158,7 @@
     the density of $\xi$. 
 \end{solution}
 \begin{problem}{11}
+    A random variable $\xi$ has uniform distribution on $[0,2\pi]$. Find the density of the distribution of $\eta = \sin\xi$.
 \end{problem}
 \begin{solution}
     To show this we need a few simple measure-theoretic facts:
@@ -184,11 +197,16 @@
     \end{align*}
 \end{solution}
 \begin{problem}{12}
+    Let $(X_1, d_1), \ldots, (X_n,d_n)$ be separable metric spaces, and define $X = X_1\times \ldots \times X_n$ to be the product space with the metric \[
+        d((x_1,\ldots,x_n), (y_1,\ldots,y_n)) = \sqrt{d_1^2(x_1,y_1) + \ldots + d_n^2(x_n,y_n)}.
+    \]
+    Prove that $\cB(X) = \cB(X_1) \times \cB(X_n)$.
 \end{problem}
 \begin{solution}
     Let $\cB(X)$ be the Borel sets of $X$, the $\sigma$-algebra of all of the open sets in $X$. Also let $\cB(X_1) \times \ldots \times \cB(X_n)$ be the product $\sigma$-algebra of $X_1,\ldots,X_n$. That $\cB(X_1) \times \ldots \times \cB(X_n) \subset \cB(X)$ is trivial since the product of open sets in $X_1, \ldots, X_n$ must be an open set in $X$. It remains to show inclusion in the other direction. Since $X$ is a separable metric space, it is second-countable. Moroever, we know that $B = \{x_1 \times \ldots \times x_n : x_1 \in X_1,\ldots,x_n \in X_n\}$ forms a basis of the product topology. Thus, any open set in $X$ can be constructed through the countable unions of sets in $B$. And so, since $\sigma$-algebras are closed under countable unions the inclusion holds in the other direction.
 \end{solution}
 \begin{problem}{13}
+    An integer from 1 to 1000 is chosen at random (with uniform distribution). What is the probability that it is an integer power (higher than the first) of an integer.
 \end{problem}
 \begin{solution}
     For any $n > 5$, $n^4 \geq 1000$. Therefore, we are mostly concerned with the set of all perfect squares and cubes less than or equal to 1000. Thus, we find these first using the inclusion-exclusion principle. Then, brute-force count the remaining numbers that do not fall into these sets. 
@@ -200,7 +218,10 @@
     \end{align*}
     It remains to account for numbers where the exponential by $5,7$ are within 1000. This only holds for $2^5,2^7,3^5$. Therefore, there are 41 numbers less than or equal to 1000 that are integer powers (greater than 1) of another integer. Thus, supposing a uniform distribution, the probability of choosing such an integer is $\frac{41}{1000}$.
 \end{solution}
-\begin{problem}{14}    
+\begin{problem}{14} 
+    Let $C_1,C_2,\ldots$ be a sequence of events in a probability space $(\Omega, \cF, \PP)$ such that $\lim_{n\to\infty} \Pr[C_n] = 0$ and $\sum_{n=1}^\infty \Pr[C_{n+1}\setminus C_n] < \infty$. Prove that \[
+        \Pr\left[\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty C_k\right] = 0.  
+    \] 
 \end{problem}
 \begin{solution}
     This is a weaker version of the \href{https://en.wikipedia.org/wiki/Borel-Cantelli_lemma}{Borel-Cantelli lemma}. Consider the Lebesgue probability measure on $[0,1]$. And then consider the events $\left[0,\frac{1}{n}\right]$ for $n = 1,2,\ldots$. It follows that $\sum_{k=1}^\infty \Pr\left[\left[0,\frac{1}{n}\right]\right] \not < \infty$, but we know that the limit superior of the probability of this sequence of events is 0. Such a sequence of events cannot be described by the stronger version of the Borel-Cantelli lemma, however, the preconditions in this problem allow for this ``counter example.''
@@ -231,6 +252,7 @@
     The second equality follows from Lemma~\ref{lemma:set-diff} and the last equality follows from the given.
 \end{solution}
 \begin{problem}{15}
+    Let $\xi$ be a random variable with continuous distribution function $F$. Find the distribution function of the random variable $F(\xi)$.
 \end{problem}
 \begin{solution}
     If $F$ is a continuous distribution of a random variable $\xi$ on the probability space $(\Omega, \cG, \cP)$, then it must be that $F$ is injective on $\img \xi$. Consider, now a random variable $\eta = F(\xi)$. We proceed to find the distribution of this $\eta$:
