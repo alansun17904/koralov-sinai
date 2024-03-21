@@ -2,12 +2,20 @@
     Let $P$ be a stochastic matrix. Prove that there is at least one non-negative vector $\pi$ such that $\pi P = \pi$. 
 \end{problem}
 \begin{solution}
-    Since the left and right eigenvalues of a square matrix are the same, then it follows that $\mathbf{1}P = \mathbf{1}$. However, there does not only exist the trivial eigenvector. We can in fact show that for every stochastic matrix there exists a stationary distribution. To prove this we use Brouwer's fixed point theorem:
+    Since the left and right eigenvalues of a square matrix are the same, then it follows that $\mathbf{1}P = \mathbf{1}$. However, there does not only exist the trivial eigenvector. We can in fact show that for every stochastic matrix there exists a stationary distribution. To prove this we use Brouwer's Fixed-Point Theorem:
     \begin{theorem}
         Every continuous function from a nonempty compact, convex subset $K$ of a Euclidean space to itself has a fixed point.
     \end{theorem}
-    Let $P \in \R^{r\times r}$. We first show that the set of probability distributions over $r$ states is a convex subset of $\R^r$. 
-
+    Let $P \in \R^{r\times r}$. We first show that the set of probability distributions over $r$ states is a convex subset of $\R^r$. Let $\pi, \pi' \in \R^r$ be probability distributions and $0 \leq \lambda \leq 1$. Denote by $(\pi)_i$ the probability corresponding to the $i$\textsuperscript{th}. Clearly, $\lambda \pi + (1-\lambda) \pi' \geq 0$.
+    Then, 
+    \begin{align*}
+        \sum_{i=1}^r \left(\lambda\pi + (1-\lambda)\pi'\right)_i = \lambda \sum_{i=1}^r (\pi)_i + (1-\lambda)\sum_{i=1}^r (\pi')_i = \lambda + (1-\lambda) = 1.
+    \end{align*}
+    Now, we show that the set of all probability distributions is compact. Suppose that $\R^r$ is equipped with the $p$-norm as its metric. Assume that $p=1$ since any $p$ induces the same topology. By way of contradiction, suppose that there exists a sequence of probability distributions $\pi_1,\pi_2,\ldots$ that converges to some $\pi$ where $\sum_{i=1} (\pi)_i \neq 1$. Let this sum be equal to $c$. Then, 
+    \begin{align*}
+        |\pi_i - \pi| \geq \left||\pi_i| - |\pi|\right| = |c|.
+    \end{align*}
+    This is a contradiction by convergence of the sequence $\{\pi_i\}_{i=1}^\infty$. Therefore, the set of probability distributions is closed and bounded. By the Heine-Borel Theorem, this set is compact. Since $(\cdot)P$ is a continuous function, by Brouwer's Fixed-Point Theorem, there exists a stationary distribution.
     % TODO: use Brouwer's fixed point theorem to show that there exists a non-trivial eigenvector.
 \end{solution}
 
@@ -15,14 +23,20 @@
     Consider a homogeneous Markov chain on a finite set with the transition matrix $P$ and an initial distribution $\mu$. Prove that for any $0 < k < n$ the induced probability distribution on the space of sequences $\omega_k,\omega_{k+1},\ldots, \omega_n$ is also a homogeneous Markov chain. Find its initial distribution and the matrix of transition probabilities.
 \end{problem}
 \begin{solution}
-    
+    Label the elements in the sample space $\{1,2,\ldots,r\}$. We show that the initial distribution is $\mu P^{k-1}$ and the transition probabilities are $P$. We proceed by way of induction on $k$. The statement is trivially true for $k=1$. Suppose the statement true for all $\ell \geq 1$. We show the statement holds for $k=\ell+1$. Let $\omega_{\ell+1},\ldots,\omega_n$ be chosen arbitrarily to be $i_{\ell+1},\ldots,i_n$, respectively. Then, 
+    \begin{align*}
+        \Pr[\omega_{\ell+1}=i_{\ell+1},\ldots,\omega_n=i_n] &= \sum_{i_\ell = 1}^r \Pr[\omega_{\ell+1}=i_{\ell+1},\ldots,\omega_n=i_n], \\
+        &= \sum_{i_\ell=1}^r \left(\mu P^{k-1}\right)_{i_\ell} P_{i_\ell i_{\ell+1}}\cdots P_{i_{n-1}i_n}, \\
+        &= \left(\mu P^k\right)_{i_{\ell + 1}} P_{i_{\ell + 1}i_{\ell+2}}\cdots P_{i_{n-1}i_n}.  
+    \end{align*}
+    The second equality follows from the induction hypothesis, and the last equality follows from Corollary~\ref{cor:initial-dist}. By the definition of homogeneous Markov chain, the statement holds.
 \end{solution}
 
 \begin{problem}{3}
     Consider a homogeneous Markov chain on a finite state space $X$ with transition matrix $P$ and the initial distribution $\delta_x$, $x \in X$, that is $\Pr[\omega_0 = x] = 1$. Let $\tau$ be the first $k$ such that $\omega_k \neq x$. Find the probability distribution of $\tau$. 
 \end{problem}
 \begin{solution}
-
+    We expect $\tau$ to follow a geometric distribution.
 \end{solution}
 
 \begin{problem}{4}

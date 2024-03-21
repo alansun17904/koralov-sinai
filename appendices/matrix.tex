@@ -1,0 +1,36 @@
+\begin{lemma}\label{lem:matrix-product}
+    Let $P \in \R^{r\times r}$ and denote the $i,j$ entry of $P$ as $P_{i,j}$. Then, 
+    \[
+        P^S_{i,j} = \sum_{i_1=1}^r \cdots \sum_{i_S=1}^r P_{i,i_1} \cdots P_{i_{S-1},j},
+    \]
+    for all $S \geq 2$. 
+\end{lemma}
+\begin{proof}
+    We proceed by way of induction on $S$. The equality trivially holds when $S=2$ since by the definition of matrix multiplication:
+    \[
+        P^2_{i,j} = \sum_{k=1}^r P_{i,k}P_{k,j}.    
+    \] 
+    Suppose the statement true for all $n>2$. Then, 
+    \begin{align*}
+        P^{n+1}_{i,j} &= (P^n\cdot P)_{i,j}, \\
+        &= \sum_{k=1}^r P^n_{i,k}P_{k,j}, \\
+        &= \sum_{k=1}^r \sum_{i_1=1}^r\cdots \sum_{i_n=1}^r P_{i,i_1}\cdots P_{i_n,k} P_{k,j}, \\
+        &= \sum_{i_1=1}^r\cdots \sum_{i_{n+1}=1}^r P_{i,i_1} \cdots P_{i_n,i_{n+1}}P_{i_{n+1},j}.
+    \end{align*}
+    The last equality comes from relabeling.
+\end{proof}
+\begin{corollary}\label{cor:initial-dist}
+    If $\mu \in \R^{1\times r}$, then 
+    \[
+        (\mu P^S)_k = \sum_{i=1}^r \sum_{i_1=1}^r \cdots \sum_{i_S=1}^r \mu_i  P_{i,i_1} \cdots P_{i_{S-1},k}.
+    \]
+\end{corollary}
+\begin{proof}
+    By definition of vector-matrix multiplication, 
+    \begin{align*}
+        (\mu P^S)_k &= \sum_{i=1}^r \mu_i\cdot P_{i,k}^S, \\ 
+        &= \sum_{i=1}^r \mu_i \cdot \sum_{i_1=1}^r \cdots \sum_{i_S=1}^r P_{i,i_1} \cdots P_{i_{S-1},k},  \\
+        &=\sum_{i=1}^r \sum_{i_1=1}^r \cdots \sum_{i_S=1}^r \mu_i  P_{i,i_1} \cdots P_{i_{S-1},k}.
+    \end{align*}
+    The second equality follows from Lemma~\ref{lem:matrix-product}.
+\end{proof}
