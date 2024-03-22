@@ -8,4 +8,5 @@ This keeps track of the problems that I'm stuck on (and some remarks for each on
 - Chapter 3: ![54%](https://progress-bar.dev/54)
 - Chapter 4: ![50%](https://progress-bar.dev/50)
 - Chapter 5: ![13%](https://progress-bar.dev/13)
+- Chapter 6: ![0%](https://progress-bar.dev/0) *Going to skip these problems for now.*
 
