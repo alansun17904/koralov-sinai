@@ -83,10 +83,18 @@ We directly apply the definition of conditional probability:
     Find the distribution of $\eta \cdot \xi$ assuming that $\xi$ and $\eta$ are independent.
 \end{problem}
 \begin{solution}
-
+Let $z = \eta \cdot \xi$. We find the distribution function of $z$:
+\begin{align*}
+    F_z(x) &= \Prob{\xi \leq \frac{x}{\eta}}, \\
+    &= \int_0^\infty \Prob{\xi \leq \frac{x}{y}} p_\eta(y)~dy, \\
+    &= \int_0^\infty p_\eta(y) \int_{-\infty}^{x/y} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}z^2}~dzdy, \\
+    &= \int_0^\infty ye^{-\frac{y^2}{2}} \Phi\left(\frac{x}{y}\right)~dy,
+    \intertext{where $\Phi(\cdot)$ is the distribution function of the standard normal distribution.}
+\end{align*}
 \end{solution}
 
 \begin{problem}{8}
+Let $\xi_1$ and $\xi_2$ be two independent Gaussian distribution with mean zero and variance one. Prove that $\eta_1 = \xi_1^2 + \xi_2^2$ and $\eta_2 = \xi_1/\xi_2$ are independent. 
 \end{problem}
 \begin{solution}
     
@@ -158,5 +166,12 @@ Let $\xi_1,\xi_2,\ldots$ be independent identically distributed random variables
 \]
 \end{problem}
 \begin{solution}
-    
+    For any $i \in \N$, let $\xi_i$ be identical random variables on the probability space $(\Omega_1, \cF_1, \mu)$. On the other hand, let $N$ be a $\N$-valued random variable on the probability space $(\Omega_2, \cF_2, \nu)$. Then,
+    \begin{align*}
+        \Exp{\sum_{i=1}^N \xi_i} &= \int_{\Omega_1 \times \Omega_2} \sum_{i=1}^N \xi_i~d(\mu \times \nu), \\
+        &= \int_{\Omega_2}\int_{\Omega_1} \sum_{i=1}^N \xi_i~d\mu d\nu, \\
+        &= \int_{\Omega_2} \sum_{i=1}^N \Exp{\xi_1}~d\nu, \\
+        &= \Exp{\xi_1} \int_{\Omega_2} N~d\nu, \\
+        &= \Exp{\xi_1} \Exp{N}.
+    \end{align*}
 \end{solution}
