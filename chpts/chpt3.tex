@@ -102,7 +102,7 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
 \begin{problem}{7}
 \end{problem}
 \begin{solution}
-    
+    Let 
 \end{solution}
 
 \begin{problem}{8}
@@ -150,7 +150,20 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
         where $q$ is the dual exponent of $p$, for all $a, b \geq 0$.
     \end{theorem}
     Now, we prove Hölder's inequality:
-    Suppose first that $p=1,q=\infty$. 
+    Suppose first that $p=1,q=\infty$. Then, it follows that 
+    \begin{align*}
+        \int |fg|~d\mu &\leq \int \lVert g \rVert_\infty |f|~d\mu, \\
+        &\leq \lVert g \rVert_\infty  \int |f|~d\mu, \\
+        &\leq \lVert f \rVert_1 \lVert g \rVert_\infty.
+    \end{align*}
+    The same argument can be repeated by bounding the Lebesgue integral of $f$ above by the essential supremum. Now, consider the case where $p > 1$. For any $x\in X$, where $X$ sample space, Young's inequality holds for $p > 1$: 
+    \begin{align*}
+        \left| \frac{f(x)}{\lVert f \rVert_p} \cdot \frac{g(x)}{\lVert g \rVert_q} \right| &\leq \frac{|f|^p}{p\lVert f\rVert_p} + \frac{|g|^q}{q\lVert g\rVert_q}, \\
+        \frac{1}{\lVert f\rVert_p \lVert g \rVert_q}\int |fg|~d\mu &\leq \int \frac{|f|^p}{p\lVert f\rVert_p} + \frac{|g|^q}{q\lVert g\rVert_q}~d\mu, \\
+        &= \frac{1}{p} \int \frac{|f|^p}{\lVert f\rVert_p}~d\mu + \frac{1}{q} \int \frac{|g|^q}{\lVert g\rVert_q}~d\mu, \\
+        &= \frac{1}{p} + \frac{1}{q}, \\
+        \int |fg|~d\mu &\leq \lVert f \rVert_p \lVert g \rVert_q.
+    \end{align*}
 \end{solution}
 
 \begin{problem}{13}

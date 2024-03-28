@@ -67,13 +67,29 @@ We directly apply the definition of conditional probability:
     Given an example of two random variables $\xi, \eta$ which are not independent, yet $\Exp{\xi\eta} = \Exp{\xi}\Exp{\eta}$. 
 \end{problem}
 \begin{solution}
-    
+    Let $X$ be uniformly distributed from $[0,2\pi]$. Let $\xi = \sin(X)$ and $\eta = \cos(X)$. Clearly, $\xi$ and $\eta$ are not independent. This is because 
+    \begin{align*}
+        \Pr\left[\xi \in \left[\frac{\sqrt{3}}{2}, 1\right], \eta \in \left[\frac{\sqrt{3}}{2}, 1\right]\right] = 0 \neq \Pr\left[\xi \in \left[\frac{\sqrt{3}}{2}, 1\right]\right]\Pr\left[\eta \in \left[\frac{\sqrt{3}}{2}, 1\right]\right] = \frac{1}{6}.
+    \end{align*}
+    However, we see that $\Exp{\xi} = \Exp{\eta} = 0$ and $\Exp{\xi\eta} = \Exp{\sin(X)\cos(X)} = \Exp{\frac{1}{2}\sin(2X)} = 0$.
 \end{solution}
 
 \begin{problem}{7}
-
+    A random variable $\xi$ has Gaussian distribution with mean zero and variance one, while a random variable $\eta$ has the distribution with density 
+    \[
+        p_\eta(t) = \begin{cases}te^{-\frac{t^2}{2}} &\text{if}\,t\geq 0, \\
+        0 &\text{otherwise}.\end{cases}  
+    \]
+    Find the distribution of $\eta \cdot \xi$ assuming that $\xi$ and $\eta$ are independent.
 \end{problem}
 \begin{solution}
+
+\end{solution}
+
+\begin{problem}{8}
+\end{problem}
+\begin{solution}
+    
 \end{solution}
 
 \begin{problem}{9}
@@ -82,8 +98,6 @@ We directly apply the definition of conditional probability:
 \begin{solution}
     Suppose that each reader finds typos independently with probability $p, q$, respectively. Let $n$ denote the total number of typos. If $n$ is sufficiently large, then $a = pn$, $b = qn$, and $c = pqn$. Then, solving for $n$, we have that $n = \frac{ab}{c}$. 
 \end{solution}
-
-
 
 \begin{problem}{10}
     Let $\xi,\eta$ be independent Poisson distributed random variables with expectations $\lambda_1,\lambda_2$, respectively. Find the distribution of $\zeta = \xi + \eta$. 
@@ -102,10 +116,33 @@ We directly apply the definition of conditional probability:
 \end{solution}
 
 \begin{problem}{11}
-    Let $\xi,\eta$ be independent random variables. Assume that $\xi$ has the uniform distribution on $[0,1]$, and $\eta$ has the Poisson distribution with parameter $\lambda$. Find $\zeta = \xi + \eta$. 
+    Let $\xi,\eta$ be independent random variables. Assume that $\xi$ has the uniform distribution on $[0,1]$, and $\eta$ has the Poisson distribution with parameter $\lambda$. Find the distribution of $\zeta = \xi + \eta$. 
 \end{problem}
 \begin{solution}
+    Let $\Omega$ denote the space of all elementary outcomes. 
+    \begin{align*}
+        \Pr[\xi + \eta \leq z] &= \Pr[\{(x,y) \in \eta(\Omega) \times \xi(\Omega): x + y \leq z\}], \\
+        &= \sum_{x=1}^{\floor{z}} \Pr[\eta = x]\Pr[\xi \in \{y \in \xi(\Omega): x + y \leq z\}], \\
+        &= \sum_{x=1}^{\floor{z}} \frac{e^{-\lambda} \lambda^x}{x!} + \frac{e^{-\lambda}\lambda^{\floor{z}}}{\floor{z}!}\left(\frac{z - \floor{z}}{z}\right).
+    \end{align*}
+    The second equality follows from the law of total probability. It feels like this sum should be some gamma distribution, but it doesn't seem like there's any clean way to derive the term on the left. 
+\end{solution}
 
+\begin{problem}{12}
+    Let $\xi_1,\xi_2,\ldots$ be independent identically distributed Gaussian random variables with mean zero and variance one. Let $\eta_1,\eta_2,\ldots$ be independent and identically distributed exponential random variables with mean one. Prove that there is such an $n > 0$ such that \[
+        \Pr[\max(\eta_1,\ldots,\eta_n) \geq \max(\xi_1,\ldots,\xi_n)] > 0.99.
+    \]
+\end{problem}
+\begin{solution}
+    We start by estimating the expression on the left. 
+    \begin{align*}
+        \Pr[\max(\eta_1,\ldots,\eta_n) \geq \max(\xi_1,\ldots,\xi_n)] &= \int_0^\infty \Pr[\max(\eta_1,\ldots,\eta_n) \geq x]\Pr[\max(\xi_1,\ldots,\xi_n) \leq x]~dx, \\
+        &= \int_0^\infty (1-\Pr[\max(\eta_1,\ldots,\eta_n) < x]) \Pr[\max(\xi_1,\ldots,\xi_n) \leq x]~dx, \\
+        &= \int_0^\infty \left(1- \prod_{i=1}^n \Pr[\eta_i < n]\right) \prod_{i=1}^n \Pr[\xi_i \leq x]~dx, \tag{by i.i.d.}\\
+        &= \int_0^\infty (1 - \Pr[\eta_1 < x]^n) \Pr[\xi_1 < x]^n~dx, \tag{by i.i.d.} \\
+        &= \int_0^\infty (1 - F^n(x))\Phi^n(x)~dx, 
+        \intertext{where $F(\cdot)$ is the distribution function of the exponential distribution and $\Phi(\cdot)$ is the distribution function of the standard normal distribution.}
+    \end{align*}
 \end{solution}
 
 \begin{problem}{13}

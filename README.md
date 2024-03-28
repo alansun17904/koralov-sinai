@@ -5,8 +5,8 @@ A collection of my solutions to *Theory of Probability and Random Processes* by 
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
 - Chapter 1: ![100%](https://progress-bar.dev/100)
 - Chapter 2: ![78%](https://progress-bar.dev/78)
-- Chapter 3: ![54%](https://progress-bar.dev/54)
-- Chapter 4: ![50%](https://progress-bar.dev/50)
-- Chapter 5: ![13%](https://progress-bar.dev/13)
+- Chapter 3: ![62%](https://progress-bar.dev/62)
+- Chapter 4: ![57%](https://progress-bar.dev/57)
+- Chapter 5: ![19%](https://progress-bar.dev/19)
 - Chapter 6: ![0%](https://progress-bar.dev/0) *Going to skip these problems for now.*
 

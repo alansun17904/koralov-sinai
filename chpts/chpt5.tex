@@ -2,7 +2,7 @@
     Let $P$ be a stochastic matrix. Prove that there is at least one non-negative vector $\pi$ such that $\pi P = \pi$. 
 \end{problem}
 \begin{solution}
-    Since the left and right eigenvalues of a square matrix are the same, then it follows that $\mathbf{1}P = \mathbf{1}$. However, there does not only exist the trivial eigenvector. We can in fact show that for every stochastic matrix there exists a stationary distribution. To prove this we use Brouwer's Fixed-Point Theorem:
+    Since the left and right eigenvalues of a square matrix are the same, then it follows that $\mathbf{1}P = \mathbf{1}$. However, there does not only exist the trivial eigenvector. We can in fact show that for every finite stochastic matrix there exists a stationary distribution. To prove this we use Brouwer's Fixed-Point Theorem:
     \begin{theorem}
         Every continuous function from a nonempty compact, convex subset $K$ of a Euclidean space to itself has a fixed point.
     \end{theorem}
@@ -36,12 +36,20 @@
     Consider a homogeneous Markov chain on a finite state space $X$ with transition matrix $P$ and the initial distribution $\delta_x$, $x \in X$, that is $\Pr[\omega_0 = x] = 1$. Let $\tau$ be the first $k$ such that $\omega_k \neq x$. Find the probability distribution of $\tau$. 
 \end{problem}
 \begin{solution}
-    
+    We expect $\tau$ to follow a geometric distribution. That is, $\Pr[\tau=k] = (1-P_{xx})P_{xx}^{k-1},$
+    if $k \geq 1$. Otherwise, $\Pr[\tau=0] = 0$. 
 \end{solution}
 
 \begin{problem}{4}
     Consider the one-dimensional simple symmetric random walk (Markov chain on the state space $\Z$ with transition probabilities $p_{i,i+1} = p_{i,i-1} = 1/2$). Prove that it does not have a stationary distribution.
 \end{problem}
 \begin{solution}
-    
+    % the only way there can exist a stationary distribution here is if the initial probability at any state is constant which is not possible on the state space Z. Thus, there cannot be a stationary distributino. 
+   We argue that if $\mu$ is a stationary distribution on $\Z$, then it must be that $\mu_i = \mu_j$ for all $i,j \in \Z$. However, if this is the case, then $\sum_{j\in\Z} \mu_j$ either equals $0$ or $\infty$ and cannot equal $1$ since all of the elements of $\mu$ must be nonnegative.  
+\end{solution}
+
+\begin{problem}{5}
+\end{problem}
+\begin{solution}
+
 \end{solution}
