@@ -142,22 +142,34 @@ Let $\xi_1$ and $\xi_2$ be two independent Gaussian distribution with mean zero 
     \]
 \end{problem}
 \begin{solution}
-    We start by estimating the expression on the left. 
+    Let $\eta_{\max} = \max(\eta_1,\ldots,\eta_n)$ and $\xi_{\max} = \max(\xi_1,\ldots,\xi_n)$. We first find the density functions of $\eta_{\max}$ and $\xi_{\max}$:
     \begin{align*}
-        \Pr[\max(\eta_1,\ldots,\eta_n) \geq \max(\xi_1,\ldots,\xi_n)] &= \int_0^\infty \Pr[\max(\eta_1,\ldots,\eta_n) \geq x]\Pr[\max(\xi_1,\ldots,\xi_n) \leq x]~dx, \\
-        &= \int_0^\infty (1-\Pr[\max(\eta_1,\ldots,\eta_n) < x]) \Pr[\max(\xi_1,\ldots,\xi_n) \leq x]~dx, \\
-        &= \int_0^\infty \left(1- \prod_{i=1}^n \Pr[\eta_i < n]\right) \prod_{i=1}^n \Pr[\xi_i \leq x]~dx, \tag{by i.i.d.}\\
-        &= \int_0^\infty (1 - \Pr[\eta_1 < x]^n) \Pr[\xi_1 < x]^n~dx, \tag{by i.i.d.} \\
-        &= \int_0^\infty (1 - F^n(x))\Phi^n(x)~dx, 
-        \intertext{where $F(\cdot)$ is the distribution function of the exponential distribution and $\Phi(\cdot)$ is the distribution function of the standard normal distribution.}
+        \Pr[\eta_{\max} \leq x] &= \prod_{i=1}^n \Pr[\eta_i \leq x], \\
+        &= F^n(x). \\
+        \Pr[\xi_{\max}\leq x] &= \prod_{i=1}^n \Pr[\xi_i \leq x], \\
+        &= \Phi^n(x).
     \end{align*}
+    Here, $\Phi(\cdot)$ and $F(\cdot)$ is the distribution function of the standard normal distribution and exponential distribution with mean zero and variance one, respectively. Then, it follows that the densities of $\eta_{\max}$ and $\xi_{\max}$ are $p_\eta(x) = nF^{n-1}(x)e^{-x}$ and $p_\xi(x) = \frac{1}{\sqrt{2\pi}}n\Phi^{n-1}(x) e^{-\frac{1}{2}x^2}$, respectively. Now, we expand the expression on the left hand-side:
+    \begin{align*}
+        \Pr[\eta_{\max} \geq \xi_{\max}] &= \int_0^\infty \int_0^y p_\eta(y) p_\xi(x)~dxdy, \\
+        &= \int_0^\infty nF^{n-1}(y)e^{-y} \left(\Phi^n(y) - \frac{1}{2^n}\right)~dy, \\
+        &= \int_0^\infty \left(n(1-e^{-y}) e^{-y}\right)\Phi^n(y)~dy - \frac{1}{2^n}\int_0^\infty n(1-e^{-y})^{n-1}e^{-y}~dy, \\
+        &= (1-e^{-y})\Phi^n(y) \bigg\vert_0^\infty - \int_0^\infty \frac{n}{\sqrt{2\pi}}(1-e^{-y})^n \Phi^{n-1}(y) e^{-\frac{1}{2}y^2}~dy - \frac{1}{2^n} (1-e^{-y})^n\bigg\vert_0^\infty, 
+        \intertext{this last equality follows from applying integration by parts on both integrals in the previous expression,}
+        &= 1- \frac{1}{2^n} -\int_0^\infty \frac{n}{\sqrt{2\pi}}(1-e^{-y})^n \Phi^{n-1}(y) e^{-\frac{1}{2}y^2}~dy,
+    \end{align*}
+    For every $n \in \N$, $\frac{n}{\sqrt{2\pi}}(1-e^{-y})^n \Phi^{n-1}(y) e^{-\frac{1}{2}y^2}$ is bounded above by the standard normal distribution. Thus, by the Dominated Convergence Theorem, 
+    \[
+    \lim_{n\to\infty} \int_0^\infty \frac{n}{\sqrt{2\pi}}(1-e^{-y})^n \Phi^{n-1}(y) e^{-\frac{1}{2}y^2}~dy = \int_0^\infty \lim_{n\to\infty} \frac{n}{\sqrt{2\pi}}(1-e^{-y})^n \Phi^{n-1}(y) e^{-\frac{1}{2}y^2}~dy = \int_0^\infty 0~dy = 0.
+    \]
+    So, as $n\to\infty$, $\Pr[\eta_{\max} \geq \xi_{\max}] \to 1$. Therefore, there must exist some $n$ such that $\Pr[\eta_{\max} \geq \xi_{\max}] > 0.99$.
 \end{solution}
+
 
 \begin{problem}{13}
     Suppose that $A_1, A_2$ are independent algebras. Prove that $\sigma(A_1), \sigma(A_2)$ are also independent.
 \end{problem}
 \begin{solution}
-    
 \end{solution}
 
 \begin{problem}{14}

@@ -6,7 +6,7 @@ This keeps track of the problems that I'm stuck on (and some remarks for each on
 - Chapter 1: ![100%](https://progress-bar.dev/100)
 - Chapter 2: ![78%](https://progress-bar.dev/78)
 - Chapter 3: ![62%](https://progress-bar.dev/62)
-- Chapter 4: ![79%](https://progress-bar.dev/79)
+- Chapter 4: ![86%](https://progress-bar.dev/86)
 - Chapter 5: ![19%](https://progress-bar.dev/19)
 - Chapter 6: ![0%](https://progress-bar.dev/0) *Going to skip these problems for now.*
 
