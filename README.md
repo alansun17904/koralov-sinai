@@ -5,8 +5,16 @@ A collection of my solutions to *Theory of Probability and Random Processes* by 
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
 - Chapter 1: ![100%](https://progress-bar.dev/100)
 - Chapter 2: ![78%](https://progress-bar.dev/78)
+
+    - Problem 7. Haven't really thought too much about this one yet.
+    - Problem 8. Struggling here. I don't think there is a closed-form solution to this or if there is a cleaner method than simply inclusion-exclusion.
+
 - Chapter 3: ![62%](https://progress-bar.dev/62)
 - Chapter 4: ![86%](https://progress-bar.dev/86)
+
+    - Problem 8. Also seems like a really computationally nasty problem.
+    - Problem 13. Haven't though too much about this one. 
+
 - Chapter 5: ![19%](https://progress-bar.dev/19)
 - Chapter 6: ![0%](https://progress-bar.dev/0) *Going to skip these problems for now.*
 
