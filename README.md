@@ -10,7 +10,7 @@ This keeps track of the problems that I'm stuck on (and some remarks for each on
     - Problem 8. Struggling here. I don't think there is a closed-form solution to this or if there is a cleaner method than simply inclusion-exclusion.
 
 - Chapter 3: ![62%](https://progress-bar.dev/62)
-- Chapter 4: ![93%](https://progress-bar.dev/86)
+- Chapter 4: ![93%](https://progress-bar.dev/93)
 
     - Problem 13. Haven't thought too much about this one.
 
