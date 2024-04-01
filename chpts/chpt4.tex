@@ -206,7 +206,7 @@ Let $\xi_1$ and $\xi_2$ be two independent Gaussian distribution with mean zero 
     Suppose that $A_1, A_2$ are independent algebras. Prove that $\sigma(A_1), \sigma(A_2)$ are also independent.
 \end{problem}
 \begin{solution}
-
+    
 \end{solution}
 
 \begin{problem}{14}
@@ -215,10 +215,12 @@ Let $\xi_1,\xi_2,\ldots$ be independent identically distributed random variables
 \]
 \end{problem}
 \begin{solution}
-    For any $i \in \N$, let $\xi_i$ be identical random variables on the probability space $(\Omega_1, \cF_1, \mu)$. On the other hand, let $N$ be a $\N$-valued random variable on the probability space $(\Omega_2, \cF_2, \nu)$. Then,
+    For any $i \in \N$, let $\xi_i$ be identical random variables on the probability space $(\Omega_1, \cF_1, \mu)$. 
+    Since $\xi_i = \xi_i^+ - \xi_i^-$, we can assume without the loss of generality that $\xi_i$ is a nonnegative random variable. 
+    On the other hand, let $N$ be a $\N$-valued random variable on the probability space $(\Omega_2, \cF_2, \nu)$. Then,
     \begin{align*}
         \Exp{\sum_{i=1}^N \xi_i} &= \int_{\Omega_1 \times \Omega_2} \sum_{i=1}^N \xi_i~d(\mu \times \nu), \\
-        &= \int_{\Omega_2}\int_{\Omega_1} \sum_{i=1}^N \xi_i~d\mu d\nu, \\
+        &= \int_{\Omega_2}\int_{\Omega_1} \sum_{i=1}^N \xi_i~d\mu d\nu, \tag{by Tonelli's Theorem}\\
         &= \int_{\Omega_2} \sum_{i=1}^N \Exp{\xi_1}~d\nu, \\
         &= \Exp{\xi_1} \int_{\Omega_2} N~d\nu, \\
         &= \Exp{\xi_1} \Exp{N}.
