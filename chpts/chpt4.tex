@@ -97,7 +97,43 @@ Let $z = \eta \cdot \xi$. We find the distribution function of $z$:
 Let $\xi_1$ and $\xi_2$ be two independent Gaussian distribution with mean zero and variance one. Prove that $\eta_1 = \xi_1^2 + \xi_2^2$ and $\eta_2 = \xi_1/\xi_2$ are independent. 
 \end{problem}
 \begin{solution}
-    
+    Let $r^2 = \xi_1^2 + \xi_2^2$ and $\tan(\theta) = \xi_1/\xi_2$. On the other hand, the inverse transformation is $\xi_1 = r\sin(\theta)$ and $\xi_2 = r\cos(\theta)$. By Lemma 4.15, $r^2$ and $\tan(\theta)$ are independent if and only if $r$ and $\theta$ are independent. Thus, we proceed to show that $r$ and $\theta$ are independent. 
+
+    Since $\xi_1,\xi_2$ are independent, their joint density is simply \[
+        f_{\xi_1\xi_2}(x,y) = \frac{1}{2\pi} \exp\left(-\frac{x^2 + y^2}{2}\right).
+    \]
+    The absolute-value of the determinant of the Jacobian of the inverse transformation is \[
+    \left| \begin{pmatrix} \sin\theta & r\cos\theta \\ \cos\theta & -r\sin\theta \end{pmatrix}\right| = |-r| = r,
+    \]
+    for $r \geq 0$. Then it follows from Theorem~\ref{thm:multi-transform}, which we show later, the joint density of $r,\theta$ is 
+    \begin{align*}
+        f_{r\theta} (r,\theta) &= \frac{1}{2\pi} \exp{\left(-\frac{r^2\cos^2\theta + r^2 \sin^2\theta}{2}\right)} \cdot r, \\
+        &= \frac{r}{2\pi}\exp{\left(-\frac{r^2}{2}\right)}, \tag{for $r\geq 0$}
+    \end{align*}
+    Since we have that $\int_0^\infty r\exp\left(-\frac{r^2}{2}\right) = 1$, $\theta$ and $r$ are independent as $\theta$ is uniformly distributed between $[0,2\pi]$, while $r$ has the density function $p(r) = r\exp\left(-\frac{r^2}{2}\right)$. This implies that $r^2$ and $\tan(\theta)$ are independent.
+    \begin{theorem}\label{thm:multi-transform}
+        Suppose $X,Y$ have joint density $f_{XY}(x,y)$ and suppose that 
+        \begin{align*}
+            U = g_1(X,Y), \\
+            V = g_2(X,Y),
+        \end{align*}
+        is an invertible, differentiable transformation and assume that the inverse transformation is given by 
+        \begin{align*}
+            X = h_1(X,Y), \\
+            Y = h_2(X,Y).
+        \end{align*}
+        Then, the joint density of $U,V$ is given by $f_{UV}(u,v) = f_{XY}(h(u,v))|J_h(u,v)|$, where $J_h$ is the Jacobian of $h(\cdot)$. 
+    \end{theorem}
+    \begin{proof}
+        Let $A \subset \R^2$ be a Borel-measurable subset. Let $\eta = (X,Y)$ and $\xi = (U,V)$. Then,
+        \begin{align*}
+            \Pr[\xi \in A] &= \Pr[g(\eta) \in A], \\
+            &= \Pr[\eta \in h(A)], \\
+            &= \iint_{h(A)} f_{XY}(x,y)~dxdy, \\
+            &= \iint_{A} f_{UV}(u,v)|J_h(u,v)|~dudv.
+        \end{align*}
+    The last equality follows from a change of coordinates since $g$ is invertible and differentiable. Thus, by the fundamental theorem of calculus the theorem holds.
+    \end{proof}
 \end{solution}
 
 \begin{problem}{9}
@@ -170,6 +206,7 @@ Let $\xi_1$ and $\xi_2$ be two independent Gaussian distribution with mean zero 
     Suppose that $A_1, A_2$ are independent algebras. Prove that $\sigma(A_1), \sigma(A_2)$ are also independent.
 \end{problem}
 \begin{solution}
+
 \end{solution}
 
 \begin{problem}{14}
