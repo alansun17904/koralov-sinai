@@ -1,4 +1,5 @@
 \begin{problem}{1}
+    Let $f_n, n\geq 1$, and $f$ be measurable functions on a measurable space $(\Omega,\cF)$. Prove that the set $\{\omega: \lim_{n\to\infty} f_n(\omega) = f(\omega)\}$ is $\cF$-measurable.
 \end{problem}
 \begin{solution}
     It suffices to show that 
@@ -17,10 +18,14 @@
         &\Rightarrow \exists j, \forall k > j, x\in \left\{\omega \in \Omega : |f_k(\omega) - f(\omega)| <  \frac{1}{i}\right\}, \tag{$\forall i \in \N$}, \\
         &\Rightarrow \forall i \in \N, \exists j, \forall k > j, |f_k(x) - f(x)| < \frac{1}{i}.
     \end{align*}
-    It follows that $f_1,f_2,\ldots$ to $f$ at $x$. The other direction of the inclusion is trivial and its proof is omited as it results from the same logic above.
+    It follows that $f_1,f_2,\ldots$ to $f$ at $x$. The other direction of the inclusion is trivial and its proof is omitted as it results from the same logic above.
 \end{solution}
 
 \begin{problem}{2}
+    Prove that if a random variable $\xi$ taking non-negative values is such that \[
+        \Pr[\xi \geq n] \geq \frac{1}{n},
+    \]
+    for all $n\in\N$. Then, $\Exp{\xi} = \infty$.
 \end{problem}
 \begin{solution}
     \begin{align*}
@@ -35,15 +40,17 @@
 Note that we just proved that if $\xi$ is a random variable that only takes on positive integers, then $\Exp{\xi} = \sum_{i=1}^\infty \Pr[\xi \geq i]$.
 
 \begin{problem}{3}
+    Construct a sequence of random variables $\xi_n$ such that $\xi_n(\omega) \to 0$ for every $\omega$, but $\Exp{\xi_n}\to\infty$ as $n\to\infty$.
 \end{problem}
 \begin{solution}
-    Let $\xi_n$ be a noramlly-distributed random variable parameterized by mean $n$ and variance $1$. Then, it is clear that $\xi_n$ converges pointwise to the random variable $\xi(\omega) = 0$, however, 
+    Let $\xi_n$ be a normally-distributed random variable parameterized by mean $n$ and variance $1$. Then, it is clear that $\xi_n$ converges pointwise to the random variable $\xi(\omega) = 0$, however, 
     \[
         \lim_{n\to\infty} \Exp{\xi_n} = \lim_{n\to\infty} n = \infty.
     \]
 \end{solution}
 
 \begin{problem}{4}
+A random variable $\xi$ takes values in the interval $[A,B]$ and $\Var{\xi} = \left(\frac{B-A}{2}\right)^2$. Find the distribution of $\xi$.
 \end{problem}
 \begin{solution}
     Let $\xi$ be a random variable such that $\Pr[\xi = A] = \Pr[\xi=B] = \frac{1}{2}$. Then it follows that 
@@ -58,6 +65,7 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
 \end{solution}
 
 \begin{problem}{5}
+Let $\{x_1, x_2,  \ldots\}$ be a collection of rational points from the interval $[0, 1]$. A random variable $\xi$ takes the value $x_n$ with probability $\frac{1}{2^n}$. Prove that the distribution function $F_\xi(x)$ of $\xi$ is continuous at every irrational point $x$.
 \end{problem}
 \begin{solution}
     Let $x$ be an arbitrary irrational number and also let $\epsilon > 0$. Then, choose $N\in\N$ such that $\log_2(1/\epsilon) + 1 < N$. Then, let 
@@ -77,6 +85,14 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
 \end{solution}
 
 \begin{problem}{6}
+Let $\xi$ be a random variable with continuous density $p_\xi$ such that $p_\xi(0) > 0$. Find the density of $\eta$, where 
+\begin{equation*}
+    \eta(\omega) = \begin{cases}
+        \frac{1}{\xi(\omega)} &\text{if}\,\xi(\omega) \neq 0, \\
+        0&\text{otherwise}.
+    \end{cases}
+\end{equation*}
+Prove that $\eta$ does not have finite expectation.
 \end{problem}
 \begin{solution}
     We first find the density of $\eta$. Consider first the distribution of $\eta$:
@@ -102,16 +118,35 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
 \begin{problem}{7}
 \end{problem}
 \begin{solution}
-    Let 
+     
 \end{solution}
 
 \begin{problem}{8}
+Prove that if a sequence of measurable functions $f_n$ converges to $f$ almost surely as $n\to\infty$, then it also converges to $f$ in measure. If $f_n$ converges to $f$ in measure, then there is a subsequence $f_{n_k}$ which converges to $f$ almost surely as $k\to\infty$.
 \end{problem}
 \begin{solution}
-    We first show that convergence almost surely implies convergence in measure. 
+    We first show that convergence almost surely implies convergence in measure by contraposition. We proceed by contraposition. Suppose that a sequence of functions does not convergence in measure. Then, there exists $\epsilon > 0$ such that $\Pr[|f_n - f| > \epsilon] \not \to 0$ as $n\to \infty$. This implies that there exists $B \subset X$ such that $\Pr[X \setminus B] > 0$ and for all $N \in \N$ there exists $n > N$ where $|f_n(x) - f(x)| > \epsilon$ where $x \in B$. Thus, the sequence cannot converge almost surely. 
+
+    It remains to show the partial converse. Let $\{\epsilon_i\}_{i=1}^\infty$ such that $\epsilon_i = 1/i$. Then, for each $\epsilon$, choose $n$ such that \[
+        \Pr[\{x \in X: |f_N(x) - f(x)| > \epsilon\}] < \frac{1}{2^j},
+    \]
+    for all $N > n$. Such an $n$ must exist by the definition of convergence in measure, denote this specific $\epsilon$-dependent $n$ as $n_{\epsilon_i}$. Now construct a subsequence of $\{f_n\}_{n=1}^\infty$, $\{f_{n_k}\}_{k=1}^\infty$ such that $n_k = \max (n_{\epsilon_i}, n_{k-1})+1$ and $n_1 = n_{\epsilon_i}$.
+
+    It remains to show that this subsequence converges almost surely to $f$. Denote by $E_k$ the following set 
+    \[
+        E_k = \left\{x \in X: |f_{n_k}(x) - f(x)| > \frac{1}{k}\right\}.
+    \]
+    By construction, $\sum_{k=1}^\infty \Pr[E_k] < \infty$. By the Borel-Cantelli lemma, the probability that there exists $x$ in infinitely many of $E_k$ is 0. More formally, 
+    \begin{align*}
+        \Pr\left[\bigcap_{n=1}^\infty \bigcup_{k=n}^\infty E_k\right] &= 0, \\
+        &= \Pr\left[\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty \left\{x \in X: |f_{n_k}(x) - f(x)| > \frac{1}{k}\right\}\right], \\
+        &= \Pr\left[\left\{x \in X: \forall N \exists k > N\,\text{such that}\, |f_{n_k}(x) - f(x) | > \frac{1}{k}\right\}\right].
+    \end{align*}
+    To complete the proof, we need to show that the set above is a superset of the set of all points that do not converge pointwise. If $x \in X$ does not converge pointwise, then there exists $\epsilon > 0$ such that for all $N \in \N$, there exists $n > N$ where $|f_{n_n}(x) - f(x)| > \epsilon$. Denote this $n$ as $n_\epsilon$. Thus, if $\epsilon < \frac{1}{n_\epsilon}$, then let $n$ be chosen to be $\frac{1}{\epsilon}$. Otherwise, let $n$ be equal to $n_\epsilon$. Then, it follows that $\forall N$, $|f_{n_n} - f(x)| > \frac{1}{n}$. Therefore, the set of points that do not converge pointwise has probability zero. 
 \end{solution}
 
 \begin{problem}{9}
+Let $F(x)$ be a distribution function. Compute $\int_{-\infty}^\infty F(x+10) - F(x)~dx$.
 \end{problem}
 \begin{solution}
     Apply integration by-parts:
@@ -139,6 +174,7 @@ Note that we just proved that if $\xi$ is a random variable that only takes on p
 \end{solution}
 
 \begin{problem}{12}
+Prove the Hölder Inequality.
 \end{problem}
 \begin{solution}
     We state Young's inequality here without proof. This is crucial to proving Hölder's ineqaulity.

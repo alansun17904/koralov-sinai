@@ -1,0 +1,13 @@
+\begin{problem}{1}
+    Let $y_1, y_2,\ldots$ be a sequence such that $0 \leq y_n \leq 1$ for all $n$, and $\sum_{n=1}^\infty y_n = \infty$. Prove that $\prod_{n=1}^\infty (1-y_n) = 0$.
+\end{problem}
+\begin{solution}
+    Since $\sum_{n=1}^\infty y_n = \infty$, there must exists infinitely many non-zero elements. Consider first the trivial case where there exists $i \in \N$ such that $y_i = 1$, then trivially the claim holds. Otherwise, consider the subsequence $\{y_{i_k}\}_{k=1}^\infty$ where for any $i_k\in\N$, such that $0 < y_{i_k} < 1$. Then, it must be that $\prod_{k=1}^{n} y_{i_k} > \prod_{k=1}^m y_{i_k}$ for any $m > n$. Thus, the sequence monotonically decreases and by the Squeeze Theorem, the infinite product converges to zero.
+\end{solution}
+
+\begin{problem}{2}
+    Let $\xi_1,\xi_2,\ldots$ be independent identically distributed random variables. Prove that $\sup_n \xi_n = \infty$ almost surely if and only if $\Pr[\xi_1 > A] > 0$ for every $A$. 
+\end{problem}
+\begin{solution}
+    
+\end{solution}
