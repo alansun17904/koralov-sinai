@@ -2,11 +2,42 @@
     Let $y_1, y_2,\ldots$ be a sequence such that $0 \leq y_n \leq 1$ for all $n$, and $\sum_{n=1}^\infty y_n = \infty$. Prove that $\prod_{n=1}^\infty (1-y_n) = 0$.
 \end{problem}
 \begin{solution}
-    Since $\sum_{n=1}^\infty y_n = \infty$, there must exists infinitely many non-zero elements. Consider first the trivial case where there exists $i \in \N$ such that $y_i = 1$, then trivially the claim holds. Otherwise, consider the subsequence $\{y_{i_k}\}_{k=1}^\infty$ where for any $i_k\in\N$, such that $0 < y_{i_k} < 1$. Then, it must be that $\prod_{k=1}^{n} y_{i_k} > \prod_{k=1}^m y_{i_k}$ for any $m > n$. Thus, the sequence monotonically decreases and by the Squeeze Theorem, the infinite product converges to zero.
+    Since $\sum_{n=1}^\infty y_n = \infty$, there must exists infinitely many non-zero elements. Consider first the trivial case where there exists $i \in \N$ such that $y_i = 1$, then trivially the claim holds. Otherwise, consider the subsequence $\{y_{i_k}\}_{k=1}^\infty$ where for any $i_k\in\N$, such that $0 < y_{i_k} < 1$. Then, it must be that $\prod_{k=1}^{n} (1-y_{i_k}) > \prod_{k=1}^m (1-y_{i_k})$ for any $m > n$. Thus, the sequence monotonically decreases and by the Squeeze Theorem, the infinite product converges to zero.
 \end{solution}
 
 \begin{problem}{2}
     Let $\xi_1,\xi_2,\ldots$ be independent identically distributed random variables. Prove that $\sup_n \xi_n = \infty$ almost surely if and only if $\Pr[\xi_1 > A] > 0$ for every $A$. 
+\end{problem}
+\begin{solution}
+    Suppose $\Pr[\xi_1 > A] > 0$ for every $A$. Then, 
+    \begin{align*}
+        \Pr[\sup_n \xi_n = \infty] &= 1 - \Pr[\sup_n \xi_n < \infty], \\
+        &= 1 - \Pr\left[\bigcup_{A = 1}^\infty \sup_n \xi_n < A \right], \\
+        &\geq 1 - \sum_{A=1}^\infty \prod_{k=1}^\infty (1 - \Pr[\xi_1 > A]), \\
+        &\geq 1.
+    \end{align*}
+    The last inequality follows from the previous problem, since we know that for a fixed $A$, $0 < \Pr[\xi_1 > A] \leq 1$ and $\sum_{k=1}^\infty \Pr[\xi_1 > A] = \infty$. Now, by way of contraposition, suppose there exists $A > 0$ such that $\Pr[\xi_1 > A] = 0$. It would suffice to show that $\Pr[\sup_n \xi_n \leq A] = 1$. 
+    \begin{align*}
+        \Pr[\sup_n \xi_n \leq A] &= \prod_{k=1}^\infty \Pr[\xi_1 \leq A], \tag{by i.i.d.}\\
+        &= \prod_{k=1}^\infty (1- \Pr[\xi_1 > A]), \\
+        &= 1.
+    \end{align*}
+    Thus, by contraposition, the claim in the other direction holds.
+\end{solution}
+
+\begin{problem}{3}
+    Let $\xi_1, \xi_2,\ldots$ be a sequence of random variables defined on the same probability space. Prove that there exists a numeric sequence $c_1,c_2,\ldots$ such that $\xi_n/c_n \to 0$ almost surely as $n\to\infty$.
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{4}
+    For each $\gamma > 2$, define the set $D_\gamma \subset [0,1]$ as follows: $x \in D_\gamma$ if there is $K_\gamma(x) > 0$ such that for each $q \in \N$
+    \[
+        \min_{p \in\N} \left|x - \frac{p}{q}\right|  \geq \frac{K_\gamma(x)}{q^\gamma}.
+    \]
+    Prove that $\lambda(D_\gamma) =1$, where $\gamma$ is the Lebesgue measure on $([0,1], \cB([0,1]))$.
 \end{problem}
 \begin{solution}
     
