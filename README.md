@@ -16,5 +16,5 @@ This keeps track of the problems that I'm stuck on (and some remarks for each on
 
 - Chapter 5: ![19%](https://progress-bar.dev/19)
 - Chapter 6: ![0%](https://progress-bar.dev/0) *Going to skip these problems for now.*
-- Chapter 7: ![10%](https://progress-bar.dev/10)
+- Chapter 7: ![20%](https://progress-bar.dev/20)
 
