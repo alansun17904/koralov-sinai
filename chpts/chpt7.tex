@@ -29,7 +29,14 @@
     Let $\xi_1, \xi_2,\ldots$ be a sequence of random variables defined on the same probability space. Prove that there exists a numeric sequence $c_1,c_2,\ldots$ such that $\xi_n/c_n \to 0$ almost surely as $n\to\infty$.
 \end{problem}
 \begin{solution}
-    
+    Let us first show the following lemma which is a simple consequence of the First Borel-Cantelli Lemma:
+    \begin{lemma}
+        Let $\xi_1,\xi_2,\ldots$ be random variables defined on the same probability space. Also, let $\epsilon_1,\epsilon_2,\ldots$ be a sequence of non-negative real numbers that converge to zero. If $\sum_{k=1}^\infty \Pr[\xi_k \geq \epsilon_k] < \infty$, then the sequence of random variables converge to 0, almost surely. 
+    \end{lemma}
+    \begin{proof}
+        Define $A \coloneqq \{ \omega \in \Omega: \text{there is an infinite sequence}\,n_i(\omega)\,\text{such that}\,\xi_{n_i}(\omega) \geq \epsilon_{n_i} \}$. Then, given the assumptions, by the First Borel-Cantelli Lemma, $\Pr[A] = 0$. Therefore, the sequence converges almost surely. 
+    \end{proof}
+    Given this lemma, simply choose $c_k$ such that $\Pr[\eta_k / c_k \geq \epsilon_k] < 1/2^k$. This satisfies the assumptions of the previous lemma and implies the claim. 
 \end{solution}
 
 \begin{problem}{4}
@@ -37,7 +44,44 @@
     \[
         \min_{p \in\N} \left|x - \frac{p}{q}\right|  \geq \frac{K_\gamma(x)}{q^\gamma}.
     \]
-    Prove that $\lambda(D_\gamma) =1$, where $\gamma$ is the Lebesgue measure on $([0,1], \cB([0,1]))$.
+    Prove that $\lambda(D_\gamma) =1$, where $\lambda$ is the Lebesgue measure on $([0,1], \cB([0,1]))$.
+\end{problem}
+\begin{solution}
+    % outline of the proof
+
+    % bound the probability of a point not being a Diophantine number
+        % negate the def of a Diophantine number
+        % for each epsilon, create an event
+        % bound this event 
+        % show that the sum of the probabilities of these events in bounded
+        % apply Borel-Cantelli
+
+    Fix $\gamma > 2$. If $x \notin D_\gamma$, then for all $\epsilon > 0$ there exists a $q \in \N$ such that \[
+        \min_{p \in \N} \left|x - \frac{p}{q}\right| < \frac{\epsilon}{q^\gamma}.
+    \]
+    We proceed to show that $\lambda([0,1] \setminus D_\gamma) = 0$ which implies the claim. Let \[
+    E_\epsilon = \{x \in [0,1]: \exists q \in \N, \min_{p\in \N} |x-p/q| < \epsilon/q^\gamma\}.
+    \]
+    Consider the sequence of events $\{E_{1/2^{-k}}\}_{k=1}^\infty$. For a given $x \in [0,1]$, if there exists a subsequence $E_{n_1}, E_{n_2},\ldots$ of the aforeconstructed sequence of events such that $x \in E_{n_i}$ for all $i$, then $x \notin D_\gamma$. Thus, 
+    it remains to show that $\Pr[E_k] < \infty$ for fixed $k > 0$. Then, through the First Borel-Cantelli Lemma, we assert that the aforementioned event is measure-zero. 
+    \begin{align*}
+        \Pr[E_k] &= \Pr\left[\bigcup_{q=1}^\infty \{x \in [0,1]: \min_{p\in \N} |x - p/q| < \epsilon / q^\gamma\}\right], \\
+        &\leq \sum_{q=1}^\infty \Pr[\{x \in [0,1]: \min_{p\in\N} |x-p/q| < \epsilon / q^\gamma\}], \\
+        &\leq \sum_{q=1}^\infty \Pr[\{x \in [0,1/q]: x \leq \epsilon / q^\gamma \}], \\
+        &= \sum_{q=1}^\infty \epsilon / q^{\gamma -1}.
+    \end{align*}
+    Since $\gamma > 2$, the sequence in the previous equality converges. Let $M \coloneqq \sum_{q=1}^\infty 1/q^{\gamma -1}$. Then, it follows that 
+    \[
+    \sum_{k = 1}^\infty \Pr[E_{1/2^{-k}}] = \sum_{k=1}^\infty \frac{M}{2^{-k}} = M < \infty. 
+    \]
+    Therefore, by the First Borel-Cantelli Lemma, the probability that $x\in [0,1]$ appears infinitely often in the events $\{E_{1/2^{-k}}\}_{k=1}^\infty$ is zero. Since we have bounded the negation by above by zero, this suffices in showing the claim.
+\end{solution}
+
+\begin{problem}{5}
+    Let $\xi_1,\ldots,\xi_n$ be a sequence of $n$ independent random variables, each $\xi_i$ having a symmetric distribution. That is, $\Pr[\xi_i \in A] = \Pr[\xi_i \in -A]$ for any Borel set $A \subset \R$. Assume that $\Exp{\xi_i^{2m}} < \infty$ for $i = 1,2,\ldots,n$. Prove the stronger version of the Kolmogorov inequality:
+    \[
+        \Pr[\max_{1\leq k \leq n} |\xi_1 +\ldots+\xi_k| \geq t] \leq \frac{\Exp{\xi_1+\ldots+\xi_n}^{2m}}{t^{2m}} 
+    \]
 \end{problem}
 \begin{solution}
     
