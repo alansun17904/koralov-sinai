@@ -80,8 +80,39 @@
 \begin{problem}{5}
     Let $\xi_1,\ldots,\xi_n$ be a sequence of $n$ independent random variables, each $\xi_i$ having a symmetric distribution. That is, $\Pr[\xi_i \in A] = \Pr[\xi_i \in -A]$ for any Borel set $A \subset \R$. Assume that $\Exp{\xi_i^{2m}} < \infty$ for $i = 1,2,\ldots,n$. Prove the stronger version of the Kolmogorov inequality:
     \[
-        \Pr[\max_{1\leq k \leq n} |\xi_1 +\ldots+\xi_k| \geq t] \leq \frac{\Exp{\xi_1+\ldots+\xi_n}^{2m}}{t^{2m}} 
+        \Pr[\max_{1\leq k \leq n} |\xi_1 +\ldots+\xi_k| \geq t] \leq \frac{\Exp{(\xi_1+\ldots+\xi_n)^{2m}}}{t^{2m}} 
     \]
+\end{problem}
+\begin{solution}
+    Let $C_k = \{\omega \in \Omega : |\xi_1(\omega) + \ldots + \xi_i(\omega) < t\,\text{for}\,1 \leq i <k\,\text{and}\,|\xi_1(x) + \ldots + \xi_k(x) \geq k\}$. Then, it follows that for $i \neq j$, $C_i \cup C_j = \emptyset$ and we have that $C \coloneqq \bigsqcup_{k=1}^n C_k$ is exactly the event that we wish to bound. We start by expanding out the right hand-side of the inequality:
+    \begin{align*}
+        \Exp{(\xi_1+\ldots+\xi_n)^{2m}} &= \int_\Omega (\xi_1+\ldots+\xi_n)^{2m}~d\PP, \\
+        &\geq \sum_{k=1}^n \int_{C_k} (\xi_1 + \ldots + \xi_n)^{2m}~d\PP, \\
+        &= \sum_{k=1}^n \int_{C_k}\left[((\xi_1 + \ldots \xi_k) + (\xi_{k+1}+\ldots+\xi_n))^2\right]^m~d\PP, \\
+        &= \sum_{k=1}^n \int_{C_k} \left[(\xi_1 + \ldots + \xi_k)^2 + 2(\xi_1+\ldots+\xi_k)(\xi_{k+1} + \ldots \xi_n) + (\xi_{k+1}+\ldots + \xi_n)^2\right]^m~d\PP, \\
+        &\geq \sum_{k=1}^n \int_{C_k}\left[t^2 + 2\cdot \sum_{\substack{1 \leq i \leq k \\ k+1\leq j \leq n}} \xi_i\xi_j\right]^m~d\PP.
+    \end{align*}
+    The last inequality follows from the construction of $C_k$ and the fact that the term $(\xi_{k+1}+\ldots+{\xi_n})^2$ is non-negative. It remains to bound the integrand:
+    \begin{align*}
+        \int_{C_k}\left[t^2 + 2\sum_{\substack{1 \leq i \leq k \\ k+1\leq j \leq n}} \xi_i\xi_j\right]^m~d\PP &= \int_{C_k} \sum_{n = 0}^m  \binom{m}{n} (t^2)^{m-n} \left(2\cdot \sum_{\substack{1 \leq i \leq k \\ k+1\leq j \leq n}} \xi_i\xi_j \right)^n~d\PP, \\
+        &= \sum_{n=0}^m \binom{m}{n}  (t^2)^{m-n} \int_{C_k}2^n\cdot \left(\sum_{\substack{1 \leq i \leq k \\ k+1\leq j \leq n}} \xi_i\xi_j \right)^n~d\PP.
+    \intertext{Now, consider the summation under the integrand. By independence and symmetry $\Exp{\xi_i^p \xi_j^q} = 0$ if either $p$ or $q$ is odd, and if both $p,q$ are even, then the expectation must be non-negative. Therefore, continuing}
+        &\geq \sum_{k=1}^n \int_{C_k} t^{2m}~d\PP = t^{2m}\Pr[C].
+    \end{align*}
+    Thus, by the construction of $C$, the claim is shown.
+\end{solution}
+
+\begin{problem}{6}
+    Let $\xi_1,\xi_2,\ldots$ be independent random variables with non-negative values. Prove that the series $\sum_{i=1}^\infty \xi_i$ converges almost surely if and only if \[
+    \sum_{i=1}^\infty \Exp{\frac{\xi_i}{1 + \xi_i}} < \infty.
+    \]
+\end{problem}
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}{7}
+    Let $\xi_1,\xi_2,\ldots$ be a sequence of 
 \end{problem}
 \begin{solution}
     
