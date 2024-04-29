@@ -108,11 +108,35 @@
     \]
 \end{problem}
 \begin{solution}
-    
+    Suppose that $\sum_{i=1}^\infty \xi_i$ converges almost surely. Then, it must be that $\Exp{\sum_{i=1}^\infty \xi_i}$ converges which implies that $\sum_{i=1}^\infty \Exp{\xi_i}$ converges. Since $\xi_i$ is non-negative, $\frac{\xi_i}{1+ \xi_i} < \xi_i$ everywhere, the claim in the forward direction holds. Now, suppose that $\sum_{i=1}^\infty \Exp{\frac{\xi_i}{1 + \xi_i}} < \infty$, we wants to show that $\sum_{i=1}^\infty \xi_i$ converges almost surely. Since the random variables non-negative, it suffices to show that $\sum_{i=1}^\infty \xi_i < \infty$ almost surely.
 \end{solution}
 
 \begin{problem}{7}
-    Let $\xi_1,\xi_2,\ldots$ be a sequence of 
+    Let $\xi_1,\xi_2,\ldots$ be a sequence of independent identically distributed random variables with uniform distribution on $[0,1]$. Prove that the limit \[
+    \lim_{n\to\infty} \sqrt[n]{\xi_1\cdot \ldots \cdot \xi_n}
+    \]
+    exists with probability one. Find its value.
+\end{problem}
+\begin{solution}
+To show that $\lim_{n\to\infty} \sqrt[n]{\xi_1,\cdot \ldots \cdot \xi_n}$ converges almost surely, it suffices to show that \[
+\exp\left(\lim_{n\to\infty} \log\left(\sqrt[n]{\xi_1,\cdot \ldots \cdot \xi_n}\right)\right)
+\] converges almost surely. Thus, we evaluate this limit. Since 
+\[
+\exp\left(\lim_{n\to\infty} \log\left(\sqrt[n]{\xi_1,\cdot \ldots \cdot \xi_n}\right)\right) = \exp\left(\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^n\log\xi_k\right),
+\]
+we first find $\Exp{\log(\xi_i)}$, then seek to apply the strong law of large numbers. So,
+\begin{align*}
+    \Exp{\log(\xi_i)} &= \int_0^1 \log(x)~dx, \\
+    &= x\log(x) - x \big\vert_0^1 = -1. 
+\end{align*}
+Since $\log(\xi_i)$ has finite mathematical expectation and the sequence of random variables $\xi_i$ are independent and identically distributed by Second Kolmogorov Theorem, it follows that 
+\[
+\exp\left(\lim_{n\to\infty} \frac{1}{n}\sum_{k=1}^n\log\xi_k\right) = e^{-1},
+\]
+almost surely. 
+\end{solution}
+
+\begin{problem}{8}
 \end{problem}
 \begin{solution}
     
