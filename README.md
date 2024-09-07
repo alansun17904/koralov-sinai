@@ -3,7 +3,7 @@ A collection of my solutions to *Theory of Probability and Random Processes* by 
 
 ## Progress
 This keeps track of the problems that I'm stuck on (and some remarks for each one) and chapters I've finished. 
-- Chapter 1: ![100%](https://progress-bar.xyz/80/100)
+- Chapter 1: ![100%](https://progress-bar.xyz/100)
 - Chapter 2: ![78%](https://progress-bar.xyz/78)
 
     - Problem 7. Haven't really thought too much about this one yet.
